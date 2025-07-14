@@ -1,0 +1,8 @@
+---
+import Title from '@/components/Title.astro'
+const { class: className, title } = Astro.props
+---
+
+<div class={className}>
+	<Title text={title} />
+</div>

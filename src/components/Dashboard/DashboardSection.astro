@@ -1,0 +1,21 @@
+---
+import DropzoneUploader from '@/components/Dashboard/DropzoneUploader'
+import LogoutButton from '@/components/Dashboard/LogoutButton.astro'
+
+const { user } = Astro.props
+---
+
+<section
+	class="mx-auto flex h-full w-full flex-col items-center justify-center rounded-lg bg-white p-6 lg:max-w-3xl"
+>
+	<div class="mb-4 flex w-full items-center justify-center">
+		<h1 class="text-2xl font-semibold text-gray-900">
+			Hola <b>{user.displayName}</b>
+		</h1>
+	</div>
+	<LogoutButton />
+
+	<p class="mb-6 w-full text-center text-gray-700">¡Vamos a subir algunas imágenes!</p>
+
+	<DropzoneUploader client:only="preact" />
+</section>

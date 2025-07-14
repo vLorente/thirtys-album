@@ -1,0 +1,46 @@
+---
+import { SOCIAL } from '@/constants/social'
+
+const { class: className } = Astro.props
+
+const path = Astro.url.pathname
+---
+
+<footer class={`bottom-2 ${className}`}>
+	<p class="text-center text-lg text-white">30 años tomando malas decisiones</p>
+
+	<!-- 🧭 Enlaces de navegación -->
+	<div class="mt-4 flex flex-row items-center justify-center gap-x-6 text-white">
+		{
+			path === '/' && (
+				<a href="/dashboard" class="transition hover:text-gray-300 hover:underline">
+					Dashboard
+				</a>
+			)
+		}
+		{
+			['/dashboard', '/signin'].includes(path) && (
+				<a href="/" class="transition hover:text-gray-300 hover:underline">
+					Galería
+				</a>
+			)
+		}
+	</div>
+
+	<!-- 🌐 Enlaces sociales -->
+	<div class="mt-4 flex flex-row items-center justify-center gap-x-2">
+		{
+			SOCIAL.map(({ url, image, name, label }) => (
+				<a
+					href={url}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label={label ?? name}
+					class="flex items-center justify-center text-white transition hover:scale-125"
+				>
+					<image.logo />
+				</a>
+			))
+		}
+	</div>
+</footer>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.thirtys-album.vlorente.dev/sitemap-index.xml

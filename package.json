@@ -1,0 +1,50 @@
+{
+	"name": "threetys-album",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"script:create-meta": "pnpx tsx scripts/create-meta-from-gallery.ts",
+		"script:create-thumb": "pnpx tsx scripts/create-thumbnails-gallery.ts",
+		"script:conver-images": "pnpx tsx scripts/convert-gallery-images.ts",
+		"script:conver-images-remove": "pnpx tsx scripts/convert-gallery-images.ts rm",
+		"script:rename-images": "pnpx tsx scripts/rename-gallery-images.ts",
+		"script:prepare-deploy-gallery": "pnpx tsx scripts/prepare-deploy-gallery.ts"
+	},
+	"dependencies": {
+		"@appnest/masonry-layout": "2.2.3",
+		"@astrojs/preact": "4.1.0",
+		"@astrojs/sitemap": "^3.4.1",
+		"@astrojs/vercel": "8.2.1",
+		"@fontsource-variable/bitter": "5.2.6",
+		"@fontsource/bungee": "5.2.5",
+		"@fontsource/creepster": "5.2.5",
+		"@fontsource/kalam": "5.2.5",
+		"@fontsource/permanent-marker": "5.2.5",
+		"@tailwindcss/vite": "4.1.11",
+		"astro": "5.11.0",
+		"astro-seo": "^0.8.4",
+		"firebase": "11.10.0",
+		"firebase-admin": "13.4.0",
+		"image-size": "^2.0.2",
+		"photoswipe": "5.4.4",
+		"preact": "10.26.5",
+		"react-dom": "19.1.0",
+		"tailwindcss": "4.1.11"
+	},
+	"devDependencies": {
+		"@typescript-eslint/parser": "8.29.1",
+		"eslint": "9.24.0",
+		"eslint-plugin-astro": "1.3.1",
+		"glob": "11.0.3",
+		"image-meta": "0.2.1",
+		"prettier": "3.5.3",
+		"prettier-plugin-astro": "0.14.1",
+		"prettier-plugin-tailwindcss": "0.6.11",
+		"sharp": "^0.34.2",
+		"ts-node": "^10.9.2"
+	}
+}
