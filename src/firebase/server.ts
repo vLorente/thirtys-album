@@ -5,11 +5,11 @@ import { getStorage } from 'firebase-admin/storage'
 
 const activeApps = getApps()
 
-const privateKey = Buffer.from(import.meta.env.FIREBASE_PRIVATE_KEY_BASE64, 'base64').toString(
-	'utf-8',
-)
-console.warn('PRIVATE KEY', privateKey)
-console.warn('PRIVATE KEY BASE', import.meta.env.FIREBASE_PRIVATE_KEY)
+// const privateKey = Buffer.from(import.meta.env.FIREBASE_PRIVATE_KEY_BASE64, 'base64').toString(
+// 	'utf-8',
+// )
+// console.error('PRIVATE KEY', privateKey)
+// console.error('PRIVATE KEY BASE', import.meta.env.FIREBASE_PRIVATE_KEY)
 const serviceAccount = {
 	type: 'service_account',
 	project_id: import.meta.env.FIREBASE_PROJECT_ID,
