@@ -1,4 +1,5 @@
 import { collectionRef } from '@/firebase/server'
+import { shuffleArray } from '@/utils/array'
 import type { APIContext } from 'astro'
 
 const PAGE_SIZE = 10
@@ -17,13 +18,15 @@ export async function GET({ request }: APIContext) {
 	}
 
 	const snapshot = await baseQuery.get()
-	const images = snapshot.docs.map((doc) => ({
+	let images = snapshot.docs.map((doc) => ({
 		id: doc.id,
 		...doc.data(),
 	}))
 
 	const lastVisible = snapshot.docs[snapshot.docs.length - 1]
 	const nextCursor = lastVisible ? lastVisible.id : null
+
+	images = shuffleArray(images)
 
 	return new Response(JSON.stringify({ images, nextCursor }), {
 		status: 200,

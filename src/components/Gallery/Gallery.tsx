@@ -1,43 +1,32 @@
 import '@/styles/global.css'
 import 'photoswipe/style.css'
 import '@/components/Gallery/styles/Gallery.css'
-import Button from '@/components/Gallery/Button'
 import ButtonToTop from '@/components/Gallery/ButtonToTop'
-import { useEffect, useRef, useState } from 'preact/hooks'
+import { useRef, useState } from 'preact/hooks'
 import { useGalleryImages } from '@/hooks/useGalleryImages'
+import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
+import { useResponsiveMaxColWidth } from '@/hooks/useResponsiveMaxColWidth'
 
 export default function Gallery() {
-	const category = '1'
 	const [isExpanded, setIsExpanded] = useState(false)
 	// const { first, photos, totalPhotos, LoadMore } = useGallery({ category, isExpanded })
 	const { images, hasMore, loadMore, loading } = useGalleryImages()
 	const sentinelRef = useRef<HTMLDivElement | null>(null)
+	const maxColWidth = useResponsiveMaxColWidth()
 
-	useEffect(() => {
-		if (!sentinelRef.current || !hasMore || loading) return
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				if (entries[0].isIntersecting) {
-					loadMore()
-				}
-			},
-			{
-				rootMargin: '100px',
-			},
-		)
-
-		observer.observe(sentinelRef.current)
-
-		return () => observer.disconnect()
-	}, [hasMore, loading])
+	useInfiniteScroll({
+		ref: sentinelRef,
+		hasMore,
+		loading,
+		onLoadMore: loadMore,
+	})
 
 	return (
 		<section className="max-w-8xl mx-auto px-2 pt-5 md:px-5">
 			{/* @ts-ignore */}
 			<masonry-layout
 				gap="24"
-				maxColWidth="600"
+				maxColWidth={maxColWidth}
 				className="mx-4 sm:py-10 lg:mx-auto lg:py-2"
 				id="gallery"
 			>
@@ -67,7 +56,7 @@ export default function Gallery() {
 					</a>
 				))}
 				{/* Sentinel (invisible, para el scroll infinito) */}
-				<div ref={sentinelRef} className="h-8 w-full" />
+				<div ref={sentinelRef} className="h-10 w-full bg-transparent" />
 				{/* @ts-ignore */}
 			</masonry-layout>
 			{loading && <p className="py-4 text-center">Cargando más imágenes...</p>}
