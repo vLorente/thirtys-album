@@ -1,28 +1,32 @@
-import { db } from '@/firebase/server'
-import type { APIRoute } from 'astro'
+import { collectionRef } from '@/firebase/server'
+import type { APIContext } from 'astro'
 
-export const POST: APIRoute = async ({ request, redirect }) => {
-	const formData = await request.formData()
-	const name = formData.get('name')?.toString()
-	const age = formData.get('age')?.toString()
-	const isBestFriend = formData.get('isBestFriend') === 'on'
+const PAGE_SIZE = 10
 
-	if (!name || !age) {
-		return new Response('Missing required fields', {
-			status: 400,
-		})
+export async function GET({ request }: APIContext) {
+	const url = new URL(request.url)
+	const cursor = url.searchParams.get('cursor') // opcional
+
+	let baseQuery = collectionRef.orderBy('timeCreated', 'desc').limit(PAGE_SIZE)
+
+	if (cursor) {
+		const lastDocRef = await collectionRef.doc(cursor).get()
+		if (lastDocRef.exists) {
+			baseQuery = baseQuery.startAfter(lastDocRef)
+		}
 	}
-	try {
-		const friendsRef = db.collection('gallery')
-		await friendsRef.add({
-			name,
-			age: parseInt(age),
-			isBestFriend,
-		})
-	} catch (error) {
-		return new Response('Something went wrong', {
-			status: 500,
-		})
-	}
-	return redirect('/dashboard')
+
+	const snapshot = await baseQuery.get()
+	const images = snapshot.docs.map((doc) => ({
+		id: doc.id,
+		...doc.data(),
+	}))
+
+	const lastVisible = snapshot.docs[snapshot.docs.length - 1]
+	const nextCursor = lastVisible ? lastVisible.id : null
+
+	return new Response(JSON.stringify({ images, nextCursor }), {
+		status: 200,
+		headers: { 'Content-Type': 'application/json' },
+	})
 }

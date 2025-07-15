@@ -31,6 +31,7 @@ const initApp = () => {
 const app = activeApps.length === 0 ? initApp() : activeApps[0]
 const storage = getStorage(app)
 const db = getFirestore(app)
+console.log('DATABASE ', import.meta.env.FIREBASE_FIRESTORE_DATABASE)
 const collectionRef = db.collection(import.meta.env.FIREBASE_FIRESTORE_DATABASE)
 
 export { app, collectionRef, db, storage }
