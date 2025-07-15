@@ -8,8 +8,8 @@ const activeApps = getApps()
 const privateKey = Buffer.from(import.meta.env.FIREBASE_PRIVATE_KEY_BASE64, 'base64').toString(
 	'utf-8',
 )
-console.log('PRIVATE KEY', privateKey)
-console.log('PRIVATE KEY BASE', import.meta.env.FIREBASE_PRIVATE_KEY)
+console.warn('PRIVATE KEY', privateKey)
+console.warn('PRIVATE KEY BASE', import.meta.env.FIREBASE_PRIVATE_KEY)
 const serviceAccount = {
 	type: 'service_account',
 	project_id: import.meta.env.FIREBASE_PROJECT_ID,
