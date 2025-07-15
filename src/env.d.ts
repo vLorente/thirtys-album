@@ -9,6 +9,7 @@ interface ImportMetaEnv {
 	readonly FIREBASE_TOKEN_URI: string
 	readonly FIREBASE_AUTH_CERT_URL: string
 	readonly FIREBASE_CLIENT_CERT_URL: string
+	readonly FIREBASE_PRIVATE_KEY_BASE64: string
 	// Firebase client configuration
 	readonly PUBLIC_FIREBASE_API_KEY: string
 	readonly PUBLIC_FIREBASE_AUTH_DOMAIN: string
@@ -18,8 +19,8 @@ interface ImportMetaEnv {
 	readonly PUBLIC_FIREBASE_APP_ID: string
 	readonly PUBLIC_FIREBASE_MEASUREMENT_ID: string
 	// Firebase config variables
-	FIREBASE_STORAGE_FOLDER: string
-	FIREBASE_FIRESTORE_DATABASE: string
+	readonly FIREBASE_STORAGE_FOLDER: string
+	readonly FIREBASE_FIRESTORE_DATABASE: string
 }
 
 interface ImportMeta {
