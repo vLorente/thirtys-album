@@ -17,8 +17,6 @@ const serviceAccount = {
 	client_x509_cert_url: import.meta.env.FIREBASE_CLIENT_CERT_URL,
 }
 
-console.warn('METADATA', import.meta.env.FIREBASE_PROJECT_ID)
-
 const initApp = () => {
 	if (import.meta.env.PROD) {
 		console.info('PROD env detected. Using default service account.')
@@ -29,6 +27,7 @@ const initApp = () => {
 	return initializeApp({
 		credential: cert(serviceAccount as ServiceAccount),
 		storageBucket: import.meta.env.PUBLIC_FIREBASE_STORAGE_BUCKET,
+		projectId: import.meta.env.FIREBASE_PROJECT_ID,
 	})
 }
 
