@@ -17,6 +17,9 @@ interface ImportMetaEnv {
 	readonly PUBLIC_FIREBASE_MESSAGING_SENDER_ID: string
 	readonly PUBLIC_FIREBASE_APP_ID: string
 	readonly PUBLIC_FIREBASE_MEASUREMENT_ID: string
+	// Firebase config variables
+	readonly FIREBASE_STORAGE_FOLDER: string
+	readonly FIREBASE_FIRESTORE_DATABASE: string
 }
 
 interface ImportMeta {

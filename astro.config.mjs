@@ -20,5 +20,5 @@ export default defineConfig({
 		inlineStylesheets: 'always',
 	},
 	adapter: vercel(),
-	site: 'https://threetys-album.vlorente.dev',
+	site: 'https://thirtys-album.vlorente.dev',
 })

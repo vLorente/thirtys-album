@@ -19,7 +19,7 @@ export const SOCIAL: Social[] = [
 	{
 		id: 'github',
 		name: 'GitHub',
-		url: 'https://github.com/vlorente/threetys-album',
+		url: 'https://github.com/vlorente/thirtys-album',
 		label: 'Visitar repositorio de la web en GitHub',
 		image: {
 			logo: GitHub,
