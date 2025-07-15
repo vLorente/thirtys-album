@@ -34,10 +34,11 @@ export function useGalleryImages() {
 
 		const res = await fetch(url)
 		const data = await res.json()
+		const more = !(data.images.length < 10)
 
 		setImages((prev) => [...prev, ...data.images])
 		setNextCursor(data.nextCursor)
-		setHasMore(!!data.nextCursor)
+		setHasMore(more)
 		setLoading(false)
 	}, [loading, hasMore, nextCursor])
 
