@@ -1,10 +1,9 @@
 import type { UploadedImage } from '@/types/firebase'
-import { db } from './server'
+import { collectionRef } from './server'
 
 export async function saveImageMetadata(image: UploadedImage): Promise<void> {
 	try {
-		const galleryRef = db.collection('gallery')
-		await galleryRef.add(image)
+		await collectionRef.add(image)
 	} catch (error) {
 		throw new Response('Something went wrong', {
 			status: 500,

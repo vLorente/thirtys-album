@@ -3,7 +3,7 @@ import { uploadImageToStorage } from '@/firebase/storage'
 import type { UploadedImage } from '@/types/firebase'
 import type { APIRoute } from 'astro'
 
-const PATH_PREFIX = 'gallery'
+const pathPrefix = import.meta.env.FIREBASE_STORAGE_FOLDER
 
 export const POST: APIRoute = async ({ request }) => {
 	try {
@@ -15,7 +15,7 @@ export const POST: APIRoute = async ({ request }) => {
 			const arrayBuffer = await file.arrayBuffer()
 			const buffer = Buffer.from(arrayBuffer)
 
-			const result = await uploadImageToStorage(buffer, file.name, PATH_PREFIX, file.type)
+			const result = await uploadImageToStorage(buffer, file.name, pathPrefix, file.type)
 			await saveImageMetadata(result)
 
 			uploaded.push(result)
