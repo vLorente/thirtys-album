@@ -1,15 +1,6 @@
+import type { UploadedImage } from '@/types/firebase'
 import 'photoswipe/style.css'
 import { useCallback, useEffect, useState } from 'preact/hooks'
-
-interface UploadedImage {
-	id: string
-	name: string
-	url: string
-	width: number
-	height: number
-	createdAt: string
-	userId: string
-}
 
 export function useGalleryImages() {
 	const [images, setImages] = useState<UploadedImage[]>([])
@@ -25,6 +16,7 @@ export function useGalleryImages() {
 			const lightbox = new PhotoSwipeLightbox({
 				gallery: '#gallery',
 				children: 'a',
+				showHideAnimationType: 'zoom',
 				pswpModule: () => import('photoswipe'),
 			})
 			lightbox.init()

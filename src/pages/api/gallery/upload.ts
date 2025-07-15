@@ -1,4 +1,4 @@
-import { saveImageMetadata } from '@/firebase/firestore'
+import { saveImageDatabase } from '@/firebase/firestore'
 import { uploadImageToStorage } from '@/firebase/storage'
 import type { UploadedImage } from '@/types/firebase'
 import type { APIRoute } from 'astro'
@@ -15,8 +15,8 @@ export const POST: APIRoute = async ({ request }) => {
 			const arrayBuffer = await file.arrayBuffer()
 			const buffer = Buffer.from(arrayBuffer)
 
-			const result = await uploadImageToStorage(buffer, file.name, pathPrefix, file.type)
-			await saveImageMetadata(result)
+			const result = await uploadImageToStorage(buffer, file.name, pathPrefix)
+			await saveImageDatabase(result)
 
 			uploaded.push(result)
 		}

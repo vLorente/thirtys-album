@@ -8,8 +8,6 @@ import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 import { useResponsiveMaxColWidth } from '@/hooks/useResponsiveMaxColWidth'
 
 export default function Gallery() {
-	const [isExpanded, setIsExpanded] = useState(false)
-	// const { first, photos, totalPhotos, LoadMore } = useGallery({ category, isExpanded })
 	const { images, hasMore, loadMore, loading } = useGalleryImages()
 	const sentinelRef = useRef<HTMLDivElement | null>(null)
 	const maxColWidth = useResponsiveMaxColWidth()
@@ -30,7 +28,7 @@ export default function Gallery() {
 				className="mx-4 sm:py-10 lg:mx-auto lg:py-2"
 				id="gallery"
 			>
-				{images.map(({ height, width, url, name }, index) => (
+				{images.map(({ height, width, url, name, thumbnailUrl }, index) => (
 					<a
 						key={`gallery-image-${index + 1}`}
 						className="group relative rounded-xl pb-4 transition-all hover:scale-105 hover:contrast-[110%]"
@@ -44,13 +42,13 @@ export default function Gallery() {
 						<img
 							className="h-auto w-full rounded-xl object-cover"
 							loading="lazy"
-							src={url}
+							src={thumbnailUrl}
 							alt={name}
 						/>
 						<img
 							className="absolute inset-0 -z-10 object-cover opacity-0 blur-md contrast-150 transition group-hover:opacity-100"
 							loading="lazy"
-							src={url}
+							src={thumbnailUrl}
 							alt="Imagen con efecto blur para hacer de sombra de una fotografía"
 						/>
 					</a>

@@ -29,11 +29,12 @@
 		"astro-seo": "^0.8.4",
 		"firebase": "11.10.0",
 		"firebase-admin": "13.4.0",
-		"image-size": "^2.0.2",
+		"image-size": "2.0.2",
 		"photoswipe": "5.4.4",
 		"preact": "10.26.5",
 		"react-dom": "19.1.0",
-		"tailwindcss": "4.1.11"
+		"tailwindcss": "4.1.11",
+		"sharp": "0.34.2"
 	},
 	"devDependencies": {
 		"@typescript-eslint/parser": "8.29.1",
@@ -44,7 +45,6 @@
 		"prettier": "3.5.3",
 		"prettier-plugin-astro": "0.14.1",
 		"prettier-plugin-tailwindcss": "0.6.11",
-		"sharp": "^0.34.2",
 		"ts-node": "^10.9.2"
 	}
 }
