@@ -24,8 +24,8 @@ Aplicación SSR (Astro + Firebase) para subir imágenes a una galería compartid
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/tuusuario/threetys-album.git
-cd threetys-album
+git clone https://github.com/tuusuario/thirtys-album.git
+cd thirtys-album
 ```
 
 2. Instala las dependencias:
