@@ -1,8 +1,9 @@
 ---
-import { app } from '@/firebase/server'
-import { getAuth } from 'firebase-admin/auth'
-import Layout from '@/layouts/Layout.astro'
 import image from '@/assets/images/site-image.png'
+import LoginForm from '@/components/LoginForm'
+import { app } from '@/firebase/server'
+import Layout from '@/layouts/Layout.astro'
+import { getAuth } from 'firebase-admin/auth'
 
 /* Check if the user is authenticated */
 const auth = getAuth(app)
@@ -10,7 +11,7 @@ if (Astro.cookies.has('__session')) {
 	const sessionCookie = Astro.cookies.get('__session')!.value
 	const decodedCookie = await auth.verifySessionCookie(sessionCookie)
 	if (decodedCookie) {
-		return Astro.redirect('/dashboard')
+		return Astro.redirect('/dashboard', 302)
 	}
 }
 ---
@@ -20,63 +21,6 @@ if (Astro.cookies.has('__session')) {
 		<!-- Imagen encabezado -->
 		<img src={image.src} alt="Login Header" class="mb-4 w-1/2 max-w-md rounded-2xl shadow-lg" />
 		<!-- Formulario de acceso -->
-		<form
-			action="/api/auth/signin"
-			method="post"
-			class="flex w-full max-w-sm flex-col gap-4 rounded-2xl p-6"
-		>
-			<label for="email" class="font-bold">Email</label>
-			<input
-				type="email"
-				name="email"
-				id="email"
-				class="rounded-lg border-2 border-black p-2 focus:outline-none focus:ring-2 focus:ring-pink-200"
-			/>
-			<label for="password" class="font-bold">Contraseña</label>
-			<input
-				type="password"
-				name="password"
-				id="password"
-				class="rounded-lg border-2 border-black p-2 focus:outline-none focus:ring-2 focus:ring-pink-200"
-			/>
-			<button
-				type="submit"
-				class="mt-4 rounded-xl border-2 border-black bg-pink-200 px-4 py-2 font-bold transition hover:bg-pink-300"
-				>Acceder</button
-			>
-		</form>
+		<LoginForm client:load />
 	</div>
-
-	<script>
-		import { app } from '@/firebase/client'
-		import { getAuth, inMemoryPersistence, signInWithEmailAndPassword } from 'firebase/auth'
-
-		const auth = getAuth(app)
-		// This will prevent the browser from storing session data
-		auth.setPersistence(inMemoryPersistence)
-
-		const form = document.querySelector('form') as HTMLFormElement
-		form.addEventListener('submit', async (e) => {
-			e.preventDefault()
-			const formData = new FormData(form)
-			const email = formData.get('email')?.toString()
-			const password = formData.get('password')?.toString()
-
-			if (!email || !password) {
-				return
-			}
-			const userCredential = await signInWithEmailAndPassword(auth, email, password)
-			const idToken = await userCredential.user.getIdToken()
-			const response = await fetch('/api/auth/signin', {
-				method: 'GET',
-				headers: {
-					Authorization: `Bearer ${idToken}`,
-				},
-			})
-
-			if (response.redirected) {
-				window.location.assign(response.url)
-			}
-		})
-	</script>
 </Layout>
