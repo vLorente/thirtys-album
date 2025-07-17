@@ -2,6 +2,20 @@
 import Seo from '@/components/Seo.astro'
 import siteData from '@/config/siteData.json'
 import { ClientRouter } from 'astro:transitions'
+
+interface Props {
+	title?: string
+	description?: string
+	canonical?: string
+	robots?: string
+}
+
+const {
+	title = siteData.title,
+	description = siteData.description,
+	canonical,
+	robots,
+} = Astro.props
 ---
 
 <head>
@@ -9,6 +23,8 @@ import { ClientRouter } from 'astro:transitions'
 	<meta name="viewport" content="width=device-width" />
 	<meta name="generator" content={Astro.generator} />
 	<title>{siteData.title}</title>
+	<meta name="description" content={description} />
+	{canonical && <link rel="canonical" href={canonical} />}
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
@@ -21,12 +37,7 @@ import { ClientRouter } from 'astro:transitions'
 	<link rel="sitemap" href="/sitemap-index.xml" />
 
 	<!-- SEO -->
-	<Seo
-		title={siteData.title}
-		description={siteData.description}
-		image={siteData.siteImage}
-		noindex="false"
-	/>
+	<Seo title={title} description={description} image={siteData.siteImage} noindex="false" />
 
 	<ClientRouter />
 </head>

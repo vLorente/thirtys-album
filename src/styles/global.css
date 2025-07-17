@@ -198,6 +198,13 @@ html {
 	scroll-behavior: smooth;
 }
 
+.hand-drawn-shadow {
+	box-shadow:
+		2px 2px 0 0 #000,
+		4px 4px 0 0 #000,
+		6px 6px 0 0 #000;
+}
+
 @utility mask-fade-bottom {
 	mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }

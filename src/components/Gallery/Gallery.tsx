@@ -2,7 +2,7 @@ import '@/styles/global.css'
 import 'photoswipe/style.css'
 import '@/components/Gallery/styles/Gallery.css'
 import ButtonToTop from '@/components/Gallery/ButtonToTop'
-import { useRef, useState } from 'preact/hooks'
+import { useRef } from 'preact/hooks'
 import { useGalleryImages } from '@/hooks/useGalleryImages'
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 import { useResponsiveMaxColWidth } from '@/hooks/useResponsiveMaxColWidth'
@@ -20,7 +20,7 @@ export default function Gallery() {
 	})
 
 	return (
-		<section className="max-w-8xl mx-auto px-2 pt-5 md:px-5">
+		<section className="pt-18 min-h-screen w-full px-2 md:px-5">
 			{/* @ts-ignore */}
 			<masonry-layout
 				gap="24"
@@ -58,7 +58,7 @@ export default function Gallery() {
 				{/* @ts-ignore */}
 			</masonry-layout>
 			{loading && <p className="py-4 text-center">Cargando más imágenes...</p>}
-			<ButtonToTop scrollTo="#header" />
+			<ButtonToTop />
 		</section>
 	)
 }

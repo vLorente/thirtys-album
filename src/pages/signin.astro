@@ -1,9 +1,10 @@
 ---
-import image from '@/assets/images/site-image.png'
 import LoginForm from '@/components/LoginForm'
+import Title from '@/components/Title.astro'
 import { app } from '@/firebase/server'
 import Layout from '@/layouts/Layout.astro'
 import { getAuth } from 'firebase-admin/auth'
+import image from 'public/images/hero-logo.webp'
 
 /* Check if the user is authenticated */
 const auth = getAuth(app)
@@ -16,11 +17,16 @@ if (Astro.cookies.has('__session')) {
 }
 ---
 
-<Layout pageTitle="Login">
-	<div class="flex min-h-[60vh] flex-col items-center justify-center py-6">
-		<!-- Imagen encabezado -->
-		<img src={image.src} alt="Login Header" class="mb-4 w-1/2 max-w-md rounded-2xl shadow-lg" />
-		<!-- Formulario de acceso -->
-		<LoginForm client:load />
-	</div>
+<Layout>
+	<section class="relative flex min-h-screen w-full flex-col">
+		<Title text="Login" className="m-4 mt-24" />
+		<div
+			class="hand-drawn-shadow max-h-1/2 m-4 flex flex-1 flex-col items-center rounded-2xl border-4 border-black bg-white/80 pt-6"
+		>
+			<!-- Imagen encabezado -->
+			<img src={image.src} alt="Login Header" class="mb-4 w-1/2 max-w-md rounded-2xl" />
+			<!-- Formulario de acceso -->
+			<LoginForm client:load />
+		</div>
+	</section>
 </Layout>

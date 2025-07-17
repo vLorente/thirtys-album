@@ -13,6 +13,7 @@ export interface Person {
 	age: number
 	drink: string
 	pub: string
+	song: string
 	gallery?: boolean
 	socials: Social[]
 	bio: string

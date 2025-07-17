@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'preact/hooks'
 
-export default function ButtonToTop({
-	className = '',
-	scrollTo = '#gallery',
-}: {
-	className?: string
-	scrollTo?: string
-}) {
+export default function ButtonToTop({ className = '' }: { className?: string }) {
 	const [showButtonToTop, setShowButtonToTop] = useState(false)
+
 	useEffect(() => {
 		const handleScroll = () => {
 			setShowButtonToTop(window.scrollY > window.innerHeight)
@@ -16,9 +11,14 @@ export default function ButtonToTop({
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
 
+	const scrollToTop = (e: Event) => {
+		e.preventDefault()
+		window.scrollTo({ top: 0, behavior: 'smooth' })
+	}
+
 	return showButtonToTop ? (
-		<a
-			href={scrollTo}
+		<button
+			onClick={scrollToTop}
 			className={`fixed bottom-4 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white text-gray-800 shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gray-500 ${className}`}
 			aria-label="Volver arriba"
 		>
@@ -31,8 +31,6 @@ export default function ButtonToTop({
 					strokeLinejoin="round"
 				/>
 			</svg>
-		</a>
-	) : (
-		<></>
-	)
+		</button>
+	) : null
 }

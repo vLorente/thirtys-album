@@ -7,6 +7,54 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'teresa',
 		name: 'Teresa',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'Teresa Poveda Iniesta',
+		birthDate: new Date(1995, 9, 2),
+		age: 29,
+		gallery: true,
+		city: 'Tobarra',
+		drink: 'Gin Tonic',
+		pub: 'Con el Toby',
+		song: 'Canción favorita',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/teresapoved',
+				label: 'Visitar perfil de Teresa en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@peereira7',
+				label: 'Visitar perfil de Peereira en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/Peereira7',
+				label: 'Visitar perfil de Peereira en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	{
+		id: 'teresa',
+		name: 'Teresa',
 		bio: 'El streamer español Peereira7 es un creador de contenido de eSports. Combina sus directos en videojuegos como Valorant o Fortnite con otros contenidos IRL y de viajes. Futbolero y fan del RC Deportivo de la Coruña, su nombre real es Pablo y uno de sus motes, además de Pereira, es ‘El Gorras’. 163 centímetros de mala baba, ideal para dejarlo todo en el ring.',
 		realName: 'Teresa Poveda Iniesta',
 		birthDate: new Date(1998, 11, 21),
@@ -15,6 +63,7 @@ export const PEOPLE: Person[] = [
 		city: 'Tobarra',
 		drink: 'Gin Tonic',
 		pub: 'Babilonia',
+		song: 'Canción favorita',
 		socials: [
 			{
 				id: 'instagram',
@@ -64,6 +113,7 @@ export const PEOPLE: Person[] = [
 		city: 'Tobarra',
 		drink: 'Gin Tonic',
 		pub: 'Babilonia',
+		song: 'Canción favorita',
 		socials: [
 			{
 				id: 'instagram',
@@ -113,6 +163,7 @@ export const PEOPLE: Person[] = [
 		city: 'Tobarra',
 		drink: 'Gin Tonic',
 		pub: 'Babilonia',
+		song: 'Canción favorita',
 		socials: [
 			{
 				id: 'instagram',
@@ -162,6 +213,7 @@ export const PEOPLE: Person[] = [
 		city: 'Tobarra',
 		drink: 'Gin Tonic',
 		pub: 'Babilonia',
+		song: 'Canción favorita',
 		socials: [
 			{
 				id: 'instagram',
@@ -211,6 +263,7 @@ export const PEOPLE: Person[] = [
 		city: 'Tobarra',
 		drink: 'Gin Tonic',
 		pub: 'Babilonia',
+		song: 'Canción favorita',
 		socials: [
 			{
 				id: 'instagram',
@@ -260,6 +313,7 @@ export const PEOPLE: Person[] = [
 		city: 'Tobarra',
 		drink: 'Gin Tonic',
 		pub: 'Babilonia',
+		song: 'Canción favorita',
 		socials: [
 			{
 				id: 'instagram',
@@ -277,7 +331,6 @@ export const PEOPLE: Person[] = [
 				name: 'TikTok',
 				url: 'https://www.tiktok.com/@peereira7',
 				label: 'Visitar perfil de Peereira en TikTok',
-				followers: '585k',
 				image: {
 					logo: TikTok,
 					width: 200,
@@ -289,7 +342,6 @@ export const PEOPLE: Person[] = [
 				name: 'X',
 				url: 'https://x.com/Peereira7',
 				label: 'Visitar perfil de Peereira en X',
-				followers: '310k',
 				image: {
 					logo: X,
 					width: 200,
