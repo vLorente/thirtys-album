@@ -1,8 +1,10 @@
 ---
-import Gallery from '@/components/Gallery/Gallery'
-import Layout from '@/layouts/Layout.astro'
+import Hero from '@/components/Hero.astro'
+import LandingLayout from '@/layouts/LandingLayout.astro'
 ---
 
-<Layout pageTitle="Galería">
-	<Gallery client:load />
-</Layout>
+<LandingLayout>
+	<!-- Hero Component -->
+	<Hero />
+	<!-- People Component -->
+</LandingLayout>

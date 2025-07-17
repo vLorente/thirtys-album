@@ -1,4 +1,4 @@
-import siteImage from '@/assets/images/site-image.png'
+import siteImage from 'public/images/site-image.webp'
 
 export interface SiteDataProps {
 	title: string

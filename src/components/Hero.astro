@@ -1,0 +1,59 @@
+---
+import SelectYourPerson from '@/components/People/SelectYoutPerson.astro'
+import { PEOPLE } from '@/constants/people'
+const selectedPersonId = Astro.url.searchParams.get('person') ?? PEOPLE[0].id
+const selectedPerson = PEOPLE.find((person) => person.id === selectedPersonId) ?? PEOPLE[0]
+---
+
+<section class="relative flex min-h-screen w-full">
+	<div class="relative flex w-full flex-col items-center p-8 text-center">
+		<div id="landing" class="absolute top-0 flex w-full flex-col items-center py-16">
+			<h3
+				class="font-heading-1 text-primary-900 animate-fade-in animate-delay-300 tracking mt-4 text-xs font-medium leading-[100%] sm:text-base"
+			>
+				<b>1995 - 2025</b>
+			</h3>
+			<figure class="animate-fade-in relative">
+				<img
+					class="relative z-20 h-auto w-64 sm:w-80 md:w-96"
+					src="/images/hero-logo.webp"
+					fetchpriority="high"
+					alt="Thirtys Album"
+					decoding="async"
+				/>
+				<div
+					class="absolute left-1/2 top-1/2 z-0 size-64 -translate-x-1/2 -translate-y-1/2 bg-pink-300/80 blur-2xl"
+				>
+				</div>
+			</figure>
+
+			<div class="relative z-10">
+				<div class="bg-primary-400/80 absolute -inset-2 -z-10 h-full w-full blur-2xl"></div>
+				<a
+					href="/archive"
+					class="font-heading-1 text-primary-900 animate-fade-in animate-delay-300 tracking mt-4 text-xl font-medium leading-[100%]"
+				>
+					<span>Galería<br />📷</span>
+				</a>
+			</div>
+		</div>
+		<SelectYourPerson people={PEOPLE} selectedPerson={selectedPerson} />
+	</div>
+</section>
+
+<style>
+	.mask-fade-text {
+		mask-image: linear-gradient(to bottom, transparent 5%, black 6%, black 95%, transparent 100%);
+	}
+
+	@keyframes person-select {
+		from {
+			opacity: 0.5;
+			border-color: rgba(255, 20, 147, 1);
+		}
+		to {
+			opacity: 1;
+			border-color: rgba(255, 20, 147, 0.5);
+		}
+	}
+</style>
