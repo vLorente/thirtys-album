@@ -6,6 +6,7 @@ const selectedPerson = PEOPLE.find((person) => person.id === selectedPersonId) ?
 ---
 
 <section class="relative flex min-h-screen w-full">
+	<div class="mask-fade-bottom absolute inset-0 w-full bg-black opacity-10"></div>
 	<div class="relative flex w-full flex-col items-center p-8 text-center">
 		<div id="landing" class="absolute top-0 flex w-full flex-col items-center py-16">
 			<h3
@@ -47,3 +48,247 @@ const selectedPerson = PEOPLE.find((person) => person.id === selectedPersonId) ?
 		}
 	}
 </style>
+
+<script>
+	import { $ } from '@/lib/dom-selector'
+
+	document.addEventListener('astro:page-load', () => {
+		const $landing = $('#landing')
+		let isMobile = window.matchMedia('(max-width: 768px)').matches
+
+		// Para que cuando cambie el tamaño de la ventana cambie el estado de si es mobile
+		// por si alguien al hacer resize ve que no funciona bien el cambio
+		// Los cambios estan pensandos para que se apliquen al entrar con un dispositivo u otro
+		window.addEventListener('resize', () => {
+			isMobile = window.matchMedia('(max-width: 768px)').matches
+			const $personSelector = $('#selectorPerson')
+			if (isMobile && $personSelector !== null) {
+				$personSelector.remove()
+			}
+		})
+
+		let currentPersonId: string | null = null
+		let hidePersonTimer: ReturnType<typeof setTimeout>
+
+		document.addEventListener('person-card-exit', () => {
+			let showPerson = false
+
+			if (!currentPersonId) return
+
+			if (isMobile) {
+				for (const card of personCards) {
+					if (card.getAttribute('data-id') === currentPersonId) {
+						if (card.getAttribute('data-selected') === 'true') {
+							showPerson = true
+							break
+						}
+					}
+				}
+
+				if (showPerson) return
+			}
+			$landing?.classList.remove('hidden')
+
+			const heroText = $(`[data-id="hero-text-${currentPersonId}"]`)
+			const heroImage = $(`[data-id="hero-image-${currentPersonId}"]`)
+			const heroMaskFadeText = $(`#mask-fade-text-${currentPersonId}`)
+
+			if (heroText && heroImage) {
+				heroText.classList.remove('animate-zoom-int')
+				heroImage.classList.remove('animate-slide-up-fade')
+
+				heroText.classList.add('animate-zoom-out')
+				heroImage.classList.add('animate-fade-out-down')
+
+				heroMaskFadeText?.classList.remove('translate-x-full')
+				heroMaskFadeText?.classList.add('-translate-x-full')
+
+				hidePersonTimer = setTimeout(() => {
+					heroText.classList.add('hidden')
+					heroImage.classList.add('hidden')
+					currentPersonId = null
+				}, 500)
+			}
+		})
+
+		document.addEventListener('person-card-hovered', (event: Event) => {
+			if (currentPersonId) {
+				// si ya hay un luchador visible, lo ocultamos
+				clearTimeout(hidePersonTimer)
+
+				const heroText = $(`[data-id="hero-text-${currentPersonId}"]`)
+				const heroImage = $(`[data-id="hero-image-${currentPersonId}"]`)
+				const heroMaskFadeText = $(`#mask-fade-text-${currentPersonId}`)
+
+				heroText?.classList.add('hidden')
+				heroImage?.classList.add('hidden')
+				heroMaskFadeText?.classList.remove('translate-x-full')
+				heroMaskFadeText?.classList.add('-translate-x-full')
+				currentPersonId = null
+			}
+
+			const customEvent = event as CustomEvent<{ id: string }>
+			const id = customEvent.detail.id
+
+			const heroText = $(`[data-id="hero-text-${id}"]`)
+			const heroImage = $(`[data-id="hero-image-${id}"]`)
+			const heroMaskFadeText = $(`#mask-fade-text-${id}`)
+
+			if (heroText && heroImage) {
+				heroText.classList.remove('animate-zoom-out')
+				heroImage.classList.remove('animate-fade-out-down')
+			}
+
+			// si es el mismo que ya se muestra
+			// entonces no hacemos nada
+			if (currentPersonId === id) return
+
+			// si ya estamos mostrando una persona, tenemos que ocultarlo
+			if (currentPersonId) {
+				const currentHeroText = $(`[data-id="hero-text-${currentPersonId}"]`)
+				const currentHeroImage = $(`[data-id="hero-image-${currentPersonId}"]`)
+				const currentHeroMaskFadeText = $(`#mask-fade-text-${currentPersonId}`)
+
+				if (currentHeroText && currentHeroMaskFadeText && currentHeroImage) {
+					currentHeroText.classList.add('hidden')
+					currentHeroImage.classList.add('hidden')
+
+					currentHeroText.classList.remove('animate-zoom-in')
+					currentHeroImage.classList.remove('animate-slide-up-fade')
+					currentHeroMaskFadeText?.classList.remove('translate-x-full')
+					currentHeroMaskFadeText?.classList.add('-translate-x-full')
+				}
+			}
+
+			$landing?.classList.add('hidden')
+
+			// mostramos el que quiere ver el usuario
+			heroText?.classList.remove('hidden')
+			heroText?.classList.add('animate-zoom-in')
+			heroImage?.classList.remove('hidden')
+			heroImage?.classList.add('animate-slide-up-fade')
+			heroMaskFadeText?.classList.remove('-translate-x-full')
+			heroMaskFadeText?.classList.add('translate-x-full')
+
+			currentPersonId = id
+		})
+
+		const $personSelector = document.createElement('div')
+		$personSelector.id = 'selectorPerson'
+
+		$personSelector.style.position = 'absolute'
+		$personSelector.style.width = 'var(--selector--width)'
+		$personSelector.style.height = 'var(--selector--height)'
+		$personSelector.style.top = 'var(--selector--top)'
+		$personSelector.style.left = 'var(--selector--left)'
+		$personSelector.style.transitionDuration = '500ms'
+		$personSelector.style.transitionTimingFunction = 'cubic-bezier(0.4, 0, 0.2, 1)'
+		$personSelector.style.transitionProperty = 'all'
+		$personSelector.style.opacity = '0'
+		$personSelector.style.zIndex = '40'
+		$personSelector.style.pointerEvents = 'none'
+		$personSelector.style.animation = 'person-select 0.5s infinite alternate'
+
+		const beforeElement = document.createElement('div')
+		beforeElement.style.position = 'absolute'
+		beforeElement.style.inset = '-4px'
+		beforeElement.style.background = 'transparent'
+		beforeElement.style.borderRadius = '8px'
+		beforeElement.style.opacity = '1'
+		beforeElement.style.zIndex = '30'
+		beforeElement.style.animation = 'person-select 0.5s infinite alternate'
+
+		const afterElement = document.createElement('div')
+		afterElement.style.position = 'absolute'
+		afterElement.style.inset = '-4px'
+		afterElement.style.zIndex = '30'
+		afterElement.style.opacity = '1'
+		afterElement.style.background = `
+      linear-gradient(to right, #fff 4px, transparent 4px) top left,
+      linear-gradient(to bottom, #fff 4px, transparent 4px) top left,
+      linear-gradient(to left, #fff 4px, transparent 4px) top right,
+      linear-gradient(to bottom, #fff 4px, transparent 4px) top right,
+      linear-gradient(to right, #fff 4px, transparent 4px) bottom left,
+      linear-gradient(to top, #fff 4px, transparent 4px) bottom left,
+      linear-gradient(to left, #fff 4px, transparent 4px) bottom right,
+      linear-gradient(to top, #fff 4px, transparent 4px) bottom right`
+		afterElement.style.backgroundRepeat = 'no-repeat'
+		afterElement.style.backgroundSize = '25px 25px'
+		afterElement.style.borderRadius = '8px'
+		afterElement.style.animation = 'person-select 0.5s infinite alternate'
+
+		$personSelector.appendChild(beforeElement)
+		$personSelector.appendChild(afterElement)
+
+		const $peopleContainer = document.getElementById('people-selection-container') as HTMLElement
+		if (!isMobile) {
+			$peopleContainer.appendChild($personSelector)
+		} else {
+			if ($personSelector) {
+				$personSelector.remove()
+			}
+		}
+
+		if (isMobile) {
+			// Quitamos `data-selected` cuando el usuario hace click en el contenedor
+			$peopleContainer.addEventListener('click', (event) => {
+				event.preventDefault()
+				event.stopPropagation()
+				personCards.forEach((card) => {
+					card.removeAttribute('data-selected')
+					card.classList.remove('selected')
+				})
+				$landing?.classList.remove('hidden')
+			})
+		}
+
+		const personCards = document.querySelectorAll('.person-card')
+
+		personCards.forEach((card, cardIndex) => {
+			if (isMobile) {
+				// Agregamos `data-selected` cuando el usuario hace click en el card
+				card.addEventListener('click', (event) => {
+					event.preventDefault()
+					event.stopPropagation()
+					// Si no tiene `data-selected` entonces lo agregamos
+					if (card.getAttribute('data-selected') === null) {
+						card.setAttribute('data-selected', 'true')
+						card.classList.add('selected')
+						// Aseguramos que solo se selecciona el que se hizo click
+						personCards.forEach((selectedCard, idx) => {
+							if (selectedCard.getAttribute('data-selected') === null || idx === cardIndex) return
+							selectedCard.removeAttribute('data-selected')
+							selectedCard.classList.remove('selected')
+						})
+						return
+					}
+					// Si ya tiene `data-selected` entonces lo quitamos y vamos a la url
+					card.removeAttribute('data-selected')
+					window.location.href = `/person/${card.getAttribute('data-id')}`
+				})
+			}
+			card.addEventListener('mouseenter', () => {
+				const { width, height, left, top } = card.getBoundingClientRect()
+				const { left: leftPersonContainer, top: topPersonContainer } =
+					$peopleContainer.getBoundingClientRect()
+
+				$personSelector.style.setProperty('--selector--left', `${left - leftPersonContainer}px`)
+				$personSelector.style.setProperty('--selector--top', `${top - topPersonContainer}px`)
+				$personSelector.style.setProperty('--selector--width', `${width}px`)
+				$personSelector.style.setProperty('--selector--height', `${height}px`)
+				$personSelector.style.transform = card.classList.contains('person-left')
+					? 'skew(2deg) scale(1.05)'
+					: 'skew(-2deg) scale(1.05)'
+
+				$personSelector.style.opacity = '1'
+				$personSelector.style.visibility = 'visible'
+			})
+
+			card.addEventListener('mouseleave', () => {
+				$personSelector.style.transform = 'scale(1)'
+				$personSelector.style.opacity = '0'
+				$personSelector.style.visibility = 'hidden'
+			})
+		})
+	})
+</script>
