@@ -19,14 +19,16 @@ if (Astro.cookies.has('__session')) {
 
 <Layout>
 	<section class="relative flex min-h-screen w-full flex-col">
-		<Title text="Login" className="m-4 mt-24" />
-		<div
-			class="hand-drawn-shadow max-h-1/2 m-4 flex flex-1 flex-col items-center rounded-2xl border-4 border-black bg-white/80 pt-6"
-		>
-			<!-- Imagen encabezado -->
-			<img src={image.src} alt="Login Header" class="mb-4 w-1/2 max-w-md rounded-2xl" />
-			<!-- Formulario de acceso -->
-			<LoginForm client:load />
+		<div class="m-4 mt-24 lg:m-auto lg:max-w-3xl">
+			<Title text="Login" className="m-4 sm:mt-24" />
+			<div
+				class="hand-drawn-shadow max-h-1/2 m-4 flex flex-1 flex-col items-center rounded-2xl border-4 border-black bg-white/80 pt-6"
+			>
+				<!-- Imagen encabezado -->
+				<img src={image.src} alt="Login Header" class="mb-4 w-1/2 max-w-md rounded-2xl" />
+				<!-- Formulario de acceso -->
+				<LoginForm client:load />
+			</div>
 		</div>
 	</section>
 </Layout>
