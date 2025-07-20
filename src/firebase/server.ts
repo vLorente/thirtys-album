@@ -1,5 +1,6 @@
 import type { ServiceAccount } from 'firebase-admin'
 import { cert, getApps, initializeApp } from 'firebase-admin/app'
+import { getAuth } from 'firebase-admin/auth'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
 
@@ -29,9 +30,9 @@ const initApp = () => {
 }
 
 const app = activeApps.length === 0 ? initApp() : activeApps[0]
+const auth = getAuth(app)
 const storage = getStorage(app)
 const db = getFirestore(app)
-console.log('DATABASE ', import.meta.env.FIREBASE_FIRESTORE_DATABASE)
 const collectionRef = db.collection(import.meta.env.FIREBASE_FIRESTORE_DATABASE)
 
-export { app, collectionRef, db, storage }
+export { app, auth, collectionRef, db, storage }

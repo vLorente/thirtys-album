@@ -1,5 +1,6 @@
 ---
 import DashboardSection from '@/components/Dashboard/DashboardSection.astro'
+import Title from '@/components/Title.astro'
 import { app } from '@/firebase/server'
 import Layout from '@/layouts/Layout.astro'
 import { getAuth } from 'firebase-admin/auth'
@@ -19,6 +20,15 @@ if (!user) {
 }
 ---
 
-<Layout pageTitle="Dashboard">
-	<DashboardSection user={user} />
+<Layout>
+	<section class="relative flex min-h-screen w-full flex-col">
+		<div class="m-4 mt-24 lg:m-auto lg:max-w-3xl">
+			<Title text="Dashboard" className="sm:mt-24" />
+			<div
+				class="hand-drawn-shadow max-h-1/2 flex flex-1 flex-col items-center rounded-2xl border-4 border-black bg-white/80 pt-6"
+			>
+				<DashboardSection user={user} />
+			</div>
+		</div>
+	</section>
 </Layout>

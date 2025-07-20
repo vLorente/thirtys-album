@@ -24,6 +24,7 @@
 		"@fontsource/creepster": "5.2.5",
 		"@fontsource/kalam": "5.2.5",
 		"@fontsource/permanent-marker": "5.2.5",
+		"@midudev/tailwind-animations": "^0.2.0",
 		"@tailwindcss/vite": "4.1.11",
 		"astro": "5.11.0",
 		"astro-seo": "^0.8.4",
@@ -33,8 +34,8 @@
 		"photoswipe": "5.4.4",
 		"preact": "10.26.5",
 		"react-dom": "19.1.0",
-		"tailwindcss": "4.1.11",
-		"sharp": "0.34.2"
+		"sharp": "0.34.2",
+		"tailwindcss": "4.1.11"
 	},
 	"devDependencies": {
 		"@typescript-eslint/parser": "8.29.1",

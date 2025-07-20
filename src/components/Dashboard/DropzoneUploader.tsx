@@ -185,10 +185,34 @@ export default function DropzoneUploader() {
 			{images.length > 0 && (
 				<button
 					onClick={handleUploadToFirebase}
-					class="mt-4 rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+					class={`mt-4 flex items-center justify-center gap-2 rounded px-4 py-2 text-white transition ${
+						isUploading ? 'cursor-not-allowed bg-gray-500' : 'bg-blue-600 hover:bg-blue-700'
+					}`}
 					disabled={isUploading}
 				>
-					{isUploading ? 'Subiendo...' : 'Subir a Firebase'}
+					{isUploading && (
+						<svg
+							class="h-5 w-5 animate-spin text-white"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+						>
+							<circle
+								class="opacity-25"
+								cx="12"
+								cy="12"
+								r="10"
+								stroke="currentColor"
+								stroke-width="4"
+							></circle>
+							<path
+								class="opacity-75"
+								fill="currentColor"
+								d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+							></path>
+						</svg>
+					)}
+					<span>{isUploading ? 'Subiendo' : 'Subir Imágenes'}</span>
 				</button>
 			)}
 

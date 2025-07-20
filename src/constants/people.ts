@@ -1,0 +1,621 @@
+import Instagram from '@/assets/svg/instagram.svg'
+import TikTok from '@/assets/svg/tiktok.svg'
+import X from '@/assets/svg/x.svg'
+import type { Person } from '@/types/people'
+import { calculateAge } from '@/utils/calc-age'
+
+export const PEOPLE: Person[] = [
+	// TERESA
+	{
+		id: 'teresa',
+		name: 'Teresa',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'Teresa Poveda Iniesta',
+		birthDate: new Date(1995, 9, 2),
+		age: calculateAge(new Date(1995, 9, 2)),
+		city: 'Tobarra',
+		drink: 'Gin Tonic',
+		pub: 'Con el Toby',
+		song: 'Canción favorita',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/teresapoved',
+				label: 'Visitar perfil de Teresa en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@ajsofjfpme',
+				label: 'Visitar perfil de Teresa en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// CARLOS
+	{
+		id: 'carlos',
+		name: 'Carlos',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'Carlos Izquierdo Navarro',
+		birthDate: new Date(1995, 2, 28),
+		age: calculateAge(new Date(1995, 2, 28)),
+		city: 'Tobarra',
+		drink: 'Gin Tonic',
+		pub: 'Babilonia',
+		song: 'Canción favorita',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/teresapoved',
+				label: 'Visitar perfil de Carlos en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@ajsofjfpme',
+				label: 'Visitar perfil de Carlos en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/',
+				label: 'Visitar perfil de Carlos en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// ESTHER
+	{
+		id: 'esther',
+		name: 'Esther',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'Esther Alfaro',
+		birthDate: new Date(1995, 7, 25),
+		age: calculateAge(new Date(1995, 7, 25)),
+		city: 'Tobarra',
+		drink: 'Gin Limón',
+		pub: 'Babilonia',
+		song: 'Canción favorita',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/teresapoved',
+				label: 'Visitar perfil de Esther en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@ajsofjfpme',
+				label: 'Visitar perfil de Esther en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/',
+				label: 'Visitar perfil de Esther en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// MARIU
+	{
+		id: 'mariu',
+		name: 'Mariu',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'María Eugenia Morcillo',
+		birthDate: new Date(1995, 10, 19),
+		age: calculateAge(new Date(1995, 10, 19)),
+		city: 'Tobarra',
+		drink: 'Gin Tonic',
+		pub: 'Babilonia',
+		song: 'Canción favorita',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/teresapoved',
+				label: 'Visitar perfil de Mariu en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@ajsofjfpme',
+				label: 'Visitar perfil de Mariu en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/',
+				label: 'Visitar perfil de Mariu en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// VALENTIN
+	{
+		id: 'valen',
+		name: 'Valentín',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'Valentín Lorente',
+		birthDate: new Date(1994, 7, 21),
+		age: calculateAge(new Date(1994, 7, 21)),
+		city: 'Ceutí',
+		drink: 'Cerveza',
+		pub: 'Babilonia',
+		song: 'Tempo 2 - Carolina Durante',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/vlorente',
+				label: 'Visitar perfil de Valentín en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@vlorente',
+				label: 'Visitar perfil de Valentín en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/vlorente94',
+				label: 'Visitar perfil de Valentín en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// VICKY
+	{
+		id: 'vicky',
+		name: 'Vicky',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'Victoria',
+		birthDate: new Date(1995, 2, 4),
+		age: calculateAge(new Date(1995, 2, 4)),
+		city: 'Tobarra',
+		drink: 'Freeway',
+		pub: 'La Luna',
+		song: 'Canción favoria',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/',
+				label: 'Visitar perfil de Vicky en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@',
+				label: 'Visitar perfil de Vicky en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/',
+				label: 'Visitar perfil de Vicky en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// MAJO
+	{
+		id: 'majo',
+		name: 'Majo',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'María José Jiménez',
+		birthDate: new Date(1995, 5, 22),
+		age: calculateAge(new Date(1995, 5, 22)),
+		city: 'Tobarra',
+		drink: 'Ron Cola',
+		pub: 'Con Gabriel',
+		song: 'Canción favoria',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/',
+				label: 'Visitar perfil de Majo en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@',
+				label: 'Visitar perfil de Majo en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/',
+				label: 'Visitar perfil de Majo en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// ADRIAN
+	{
+		id: 'adrian',
+		name: 'Adrián',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'Adrían Rodriguez Moreno',
+		birthDate: new Date(1994, 7, 21),
+		age: calculateAge(new Date(1994, 7, 21)),
+		city: 'Murcianico',
+		drink: 'Ron Cola',
+		pub: 'Babilonia',
+		song: 'Canción favoria',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/',
+				label: 'Visitar perfil de Adrián en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@',
+				label: 'Visitar perfil de Adrián en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/',
+				label: 'Visitar perfil de Adrián en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// MARIA
+	{
+		id: 'maria',
+		name: 'María',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'María López',
+		birthDate: new Date(1995, 6, 14),
+		age: calculateAge(new Date(1995, 6, 14)),
+		city: 'Tobarra/Ceutí',
+		drink: 'Gin Tonic',
+		pub: 'Babilonia',
+		song: 'Canción favoria',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/',
+				label: 'Visitar perfil de María en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@',
+				label: 'Visitar perfil de María en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/',
+				label: 'Visitar perfil de María en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// EU
+	{
+		id: 'eu',
+		name: 'Eu',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'Eustaquio Cascales',
+		birthDate: new Date(1994, 7, 21),
+		age: calculateAge(new Date(1994, 7, 21)),
+		city: 'Ceutí',
+		drink: 'Agua Mineral',
+		pub: 'Babilonia',
+		song: 'Canción favoria',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/',
+				label: 'Visitar perfil de Eu en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@',
+				label: 'Visitar perfil de Eu en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/',
+				label: 'Visitar perfil de Eu en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// FATIMA
+	{
+		id: 'fatima',
+		name: 'Fátima',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'Fátima Paterna',
+		birthDate: new Date(1995, 7, 13),
+		age: calculateAge(new Date(1995, 7, 13)),
+		city: 'Tobarra',
+		drink: 'Agua Mineral',
+		pub: 'En Disney',
+		song: 'Canción favoria',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/',
+				label: 'Visitar perfil de Fátima en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@',
+				label: 'Visitar perfil de Fátima en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/',
+				label: 'Visitar perfil de Fátima en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// RAFA
+	{
+		id: 'rafa',
+		name: 'Rafa',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'Rafael Pastor',
+		birthDate: new Date(1995, 5, 24),
+		age: calculateAge(new Date(1995, 5, 24)),
+		city: 'Tobarra',
+		drink: 'Agua Mineral',
+		pub: 'En Disney',
+		song: 'Canción favoria',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/',
+				label: 'Visitar perfil de Rafa en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@',
+				label: 'Visitar perfil de Rafa en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/',
+				label: 'Visitar perfil de Rafa en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+	// ROCIO
+	{
+		id: 'rocio',
+		name: 'Rocío',
+		bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+		realName: 'Rocío Pinar',
+		birthDate: new Date(1995, 0, 30),
+		age: calculateAge(new Date(1995, 0, 30)),
+		city: 'Tobarra',
+		drink: 'Gin Tonic',
+		pub: 'En La Tarima',
+		song: 'Canción favoria',
+		socials: [
+			{
+				id: 'instagram',
+				name: 'Instagram',
+				url: 'https://www.instagram.com/',
+				label: 'Visitar perfil de Rocío en Instagram',
+				image: {
+					logo: Instagram,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'tiktok',
+				name: 'TikTok',
+				url: 'https://www.tiktok.com/@',
+				label: 'Visitar perfil de Rocío en TikTok',
+				image: {
+					logo: TikTok,
+					width: 200,
+					height: 200,
+				},
+			},
+			{
+				id: 'x',
+				name: 'X',
+				url: 'https://x.com/',
+				label: 'Visitar perfil de Rocío en X',
+				image: {
+					logo: X,
+					width: 200,
+					height: 200,
+				},
+			},
+		],
+	},
+] as const

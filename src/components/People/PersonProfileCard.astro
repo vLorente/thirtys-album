@@ -1,0 +1,92 @@
+---
+const { person, birthDate } = Astro.props
+
+const generateRandomBars = () => {
+	const bars = []
+	for (let i = 0; i < 20; i++) {
+		// Random width between 4px and 20px
+		bars.push(Math.floor(Math.random() * (2 - 1 + 1)) + 2)
+	}
+	return bars
+}
+
+const bars = generateRandomBars()
+---
+
+<article
+	class="duration-600 w-full max-w-[450px] overflow-hidden rounded-xl border-2 border-white/40 bg-pink-600/40 transition-all hover:scale-105 lg:min-w-[300px]"
+>
+	<!-- Contenedor principal -->
+	<div class="grid w-full grid-flow-row grid-cols-2 lowercase sm:grid-flow-col">
+		<!-- Informacion General -->
+		<section class="order-2 col-span-2 sm:order-1">
+			<!-- Nombre -->
+			<section class="col-span-2 mt-0 sm:mt-6">
+				<h1
+					class="animate-fade-in text-dark-magenta flex items-center justify-center text-balance bg-pink-200/60 px-2 text-center text-xl font-bold uppercase"
+				>
+					{person.realName}
+				</h1>
+			</section>
+			<!-- Otros datos del luchador -->
+			<div class="grid grid-cols-2 gap-4 px-4 py-4 text-left font-normal text-white">
+				<section class="flex flex-col">
+					<span class="text-sm text-white/60">Edad</span>
+					<strong class="text-md animate-fade-in animate-delay-250">{person.age} años</strong>
+				</section>
+				<section class="flex flex-col">
+					<span class="text-sm text-white/60">Canción</span>
+					<strong class="text-md animate-fade-in animate-delay-400">{person.song}</strong>
+				</section>
+				<section class="flex flex-col">
+					<span class="text-sm text-white/60">Nacimiento</span>
+					<strong class="text-md animate-fade-in animate-delay-[350ms]">{birthDate}</strong>
+				</section>
+				<section class="flex flex-col">
+					<span class="text-sm text-white/60">Bebida</span>
+					<strong class="text-md animate-fade-in animate-delay-300">{person.drink}</strong>
+				</section>
+				<section class="flex flex-col">
+					<span class="text-sm text-white/60">¿Si me pierdo?</span>
+					<strong class="text-md animate-fade-in animate-delay-300">{person.pub}</strong>
+				</section>
+			</div>
+		</section>
+		<!-- Imagen del luchador -->
+		<section
+			class="item-center animate-fade-in animate-delay-500 order-1 col-span-2 flex justify-center sm:order-2"
+		>
+			<figure class="w-full max-w-[140px]">
+				<img
+					class="aspect-[140/186.33] w-full overflow-hidden rounded-bl-none bg-gray-400 object-cover sm:rounded-bl-lg"
+					src={`/images/people/cards/${person.id}.webp`}
+					alt={`Tarjeta del boxeador ${person.name}`}
+				/>
+			</figure>
+		</section>
+	</div>
+
+	<!-- Información adicional y código de barras -->
+	<footer class="bg-dark-magenta flex items-center justify-between px-2 py-3 pl-4">
+		<section class="flex flex-col">
+			<span class="text-sm text-white/60">Ciudad</span>
+			<strong class="text-md animate-fade-in animate-delay-400">{person.city}</strong>
+		</section>
+		<!-- <section class="flex flex-col items-center space-x-2">
+			<span class="text-sm text-white/60">Ciudad</span>
+			<strong class="text-md animate-fade-in animate-delay-700 lowercase text-white"
+				>{person.city}</strong
+			>
+		</section> -->
+
+		<section class="animate-fade-in animate-delay-800 flex items-center justify-center space-x-2">
+			<img
+				class="h-10 opacity-80"
+				src="/images/30-nbg.webp"
+				fetchpriority="high"
+				alt="30 años de malas decisiones"
+				decoding="async"
+			/>
+		</section>
+	</footer>
+</article>

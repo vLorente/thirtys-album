@@ -31,7 +31,7 @@ export function generateThumbnail(image: Buffer): Promise<Buffer> {
 		.resize(400)
 		.webp({
 			lossless: false,
-			quality: 25,
+			quality: 40,
 		})
 		.toBuffer()
 

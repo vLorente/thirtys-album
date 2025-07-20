@@ -1,32 +1,40 @@
-import { app } from '@/firebase/server'
+import { auth } from '@/firebase/server'
 import type { APIRoute } from 'astro'
-import { getAuth } from 'firebase-admin/auth'
 
 export const GET: APIRoute = async ({ request, cookies, redirect }) => {
-	const auth = getAuth(app)
+	const authHeader = request.headers.get('Authorization')
+	const idToken = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null
 
-	/* Get token from request headers */
-	const idToken = request.headers.get('Authorization')?.split('Bearer ')[1]
 	if (!idToken) {
-		return new Response('No token found', { status: 401 })
+		return new Response(JSON.stringify({ error: 'No token found' }), {
+			status: 401,
+			headers: { 'Content-Type': 'application/json' },
+		})
 	}
 
-	/* Verify id token */
 	try {
 		await auth.verifyIdToken(idToken)
-	} catch (error) {
-		return new Response(`Invalid token: ${error}`, { status: 401 })
+
+		const expiresInMs = 60 * 60 * 24 * 5 * 1000 // 5 días
+		const sessionCookie = await auth.createSessionCookie(idToken, {
+			expiresIn: expiresInMs,
+		})
+
+		cookies.set('__session', sessionCookie, {
+			path: '/',
+			httpOnly: true,
+			sameSite: 'lax',
+			secure: import.meta.env.PROD,
+			maxAge: expiresInMs / 1000,
+		})
+
+		return redirect('/dashboard')
+	} catch (err) {
+		const error = err instanceof Error ? err.message : 'Unknown error'
+
+		return new Response(JSON.stringify({ error }), {
+			status: 401,
+			headers: { 'Content-Type': 'application/json' },
+		})
 	}
-
-	/* Create and set session cookie */
-	const oneDay = 60 * 60 * 24 * 1 * 1000
-	const sessionCookie = await auth.createSessionCookie(idToken, {
-		expiresIn: oneDay,
-	})
-
-	cookies.set('__session', sessionCookie, {
-		path: '/',
-	})
-
-	return redirect('/dashboard')
 }

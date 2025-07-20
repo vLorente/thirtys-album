@@ -1,8 +1,190 @@
 ---
-import Title from '@/components/Title.astro'
-const { class: className, title } = Astro.props
+const { pathname } = Astro.url
+
+// Lista de rutas donde NO debe aparecer el logo
+const hideLogoRoutes = ['/']
+const shouldShowLogo = !hideLogoRoutes.includes(pathname)
+
+// Comprueba si la ruta actual está activa
+const isActive = (path: string) => pathname === path
 ---
 
-<div id="header" class={className}>
-	<Title text={title} />
+<div class="fixed right-8 top-8 z-[100] md:hidden">
+	<button
+		id="menuButton"
+		aria-expanded="false"
+		aria-controls="menuMobileContent"
+		class="hamburgerButton group relative flex h-[20px] w-6 cursor-pointer flex-col items-center justify-between transition duration-300 hover:scale-110 lg:hidden"
+		aria-label="Abrir menú de navegación"
+	>
+		<span
+			class="ease h-[2px] w-6 transform bg-gray-300 transition duration-300 group-[.open]:translate-y-2 group-[.open]:rotate-45"
+		></span>
+		<span
+			class="ease h-[2px] w-6 transform bg-gray-300 transition duration-300 group-[.open]:opacity-0"
+		></span>
+		<span
+			class="ease h-[2px] w-6 transform bg-gray-300 transition duration-300 group-[.open]:opacity-0"
+		></span>
+		<span
+			class="ease h-[2px] w-6 transform bg-gray-300 transition duration-300 group-[.open]:-translate-y-[0.6rem] group-[.open]:-rotate-45"
+		></span>
+	</button>
 </div>
+
+<header
+	id="header"
+	class="fixed top-0 z-50 mx-auto flex h-20 w-full select-none items-center text-white md:overflow-hidden"
+>
+	<div class="relative flex justify-between px-6 py-4 md:w-full">
+		<a href="/" class="cursor-pointer transition duration-300 hover:scale-110 md:hidden">
+			<img src="/images/30-nbg.webp" alt="logo" class="h-auto w-10" />
+		</a>
+
+		<div
+			id="overlay-menu"
+			class="bg-theme-raisin-black/50 fixed inset-0 hidden h-[100vh] md:hidden"
+		>
+		</div>
+		<nav
+			id="navContent"
+			class="bg-theme-french-mauve/90 invisible fixed right-0 top-0 mx-auto h-[100vh] max-w-6xl translate-x-full items-center justify-between space-y-2 px-6 pt-14 text-xs font-light backdrop-blur-2xl md:visible md:relative md:flex md:!h-fit md:w-full md:translate-x-0 md:space-y-0 md:bg-transparent md:py-4 md:backdrop-blur-none lg:text-sm"
+		>
+			<div
+				class:list={[
+					'flex flex-col justify-start space-y-2 md:flex-row md:gap-8 md:space-y-0',
+					shouldShowLogo ? 'md:w-1/3' : 'md:flex-grow',
+				]}
+			>
+				<a
+					href="/archive"
+					class="group relative inline-block w-fit py-1 leading-relaxed tracking-wider"
+				>
+					<span class="text-theme-seashell md:text-primary-600 font-heading-1 py-1 md:text-lg"
+						>GALERÍA</span
+					>
+					<div class="relative mt-1 h-[2px] w-full overflow-hidden">
+						<div
+							class:list={[
+								'absolute bottom-0 left-0 h-full bg-[color:var(--color-theme-tickle-me-pink)] transition-all duration-300 ease-out',
+								isActive('/archive') ? 'w-[51%]' : 'w-0 group-hover:w-[51%]',
+							]}
+						>
+						</div>
+						<div
+							class:list={[
+								'absolute bottom-0 right-0 h-full bg-[color:var(--color-theme-turquoise)] transition-all duration-300 ease-out',
+								isActive('/archive') ? 'w-[51%]' : 'w-0 group-hover:w-[51%]',
+							]}
+						>
+						</div>
+					</div>
+				</a>
+				<a
+					href="/dashboard"
+					class="group relative inline-block w-fit py-1 leading-relaxed tracking-wider"
+				>
+					<span class="text-theme-seashell md:text-primary-600 font-heading-1 py-1 md:text-lg"
+						>DASHBOARD</span
+					>
+					<div class="relative mt-1 h-[2px] w-full overflow-hidden">
+						<div
+							class:list={[
+								'absolute bottom-0 left-0 h-full bg-[color:var(--color-theme-tickle-me-pink)] transition-all duration-300 ease-out',
+								isActive('/dashboard') ? 'w-[51%]' : 'w-0 group-hover:w-[51%]',
+							]}
+						>
+						</div>
+						<div
+							class:list={[
+								'absolute bottom-0 right-0 h-full bg-[color:var(--color-theme-turquoise)] transition-all duration-300 ease-out',
+								isActive('/dashboard') ? 'w-[51%]' : 'w-0 group-hover:w-[51%]',
+							]}
+						>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			{
+				shouldShowLogo && (
+					<a
+						href="/"
+						class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transition duration-500 hover:scale-110 md:inline-block"
+					>
+						<img
+							class="h-10"
+							src="/images/30-nbg.webp"
+							fetchpriority="high"
+							alt="Thirtys Album"
+							decoding="async"
+						/>
+					</a>
+				)
+			}
+		</nav>
+	</div>
+</header>
+
+<style>
+	header {
+		background: transparent;
+		animation: header-blur-scroll 0.3s linear both;
+		animation-timeline: scroll();
+		animation-range: 0 250px;
+		border-bottom: 1px solid transparent;
+	}
+
+	@keyframes header-blur-scroll {
+		0% {
+			backdrop-filter: blur(0px);
+			background: transparent;
+		}
+
+		100% {
+			backdrop-filter: blur(10px);
+			background: rgba(0, 0, 0, 0.5);
+			padding-bottom: var(--spacing-6);
+			border-bottom-color: black;
+		}
+	}
+
+	#navContent {
+		transition:
+			translate 0.3s ease-in-out,
+			visibility 0.3s 0.3s;
+	}
+
+	#navContent.showing {
+		visibility: visible;
+		translate: 0 0;
+		transition:
+			translate 0.3s ease-in-out,
+			visibility 0.3s;
+	}
+</style>
+
+<script>
+	import { $ } from '@/lib/dom-selector'
+
+	document.addEventListener('astro:page-load', () => {
+		function toggleMenu(
+			menuBtn: Element | null,
+			navContent: Element | null,
+			overlayMenu: Element | null,
+		) {
+			menuBtn?.classList.toggle('open')
+			navContent?.classList.toggle('showing')
+			tickets?.classList.toggle('neon-text')
+			overlayMenu?.classList.toggle('hidden')
+		}
+
+		const navContent = $('#navContent')
+		const menuButton = $('#menuButton')
+		const overlayMenu = $('#overlay-menu')
+		const tickets = $('#buy-tickets')
+
+		menuButton?.addEventListener('click', () => toggleMenu(menuButton, navContent, overlayMenu))
+		overlayMenu?.addEventListener('click', () => toggleMenu(menuButton, navContent, overlayMenu))
+	})
+</script>
