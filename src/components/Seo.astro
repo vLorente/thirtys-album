@@ -16,10 +16,9 @@ interface GenProps extends BaseProps {
 	image?: ImageMetadata
 }
 
-const { title, description, noindex, type, image } = Astro.props as GenProps
+const { title, description, canonical, noindex, type, image } = Astro.props as GenProps
 
 let optimizedImage
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
 
 // if this is a blog page we do things differently
 if (image) {
@@ -46,13 +45,13 @@ const imageUrl = trimEndSlash(Astro.site?.toString() || '') + optimizedImage?.sr
 <SEO
 	title={title}
 	description={description}
-	canonical={canonicalUrl.toString()}
+	canonical={canonical}
 	openGraph={{
 		basic: {
 			title: title,
 			type: 'website',
 			image: imageUrl,
-			url: canonicalUrl.toString(),
+			url: canonical,
 		},
 		optional: {
 			description: description,
