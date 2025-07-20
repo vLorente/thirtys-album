@@ -1,8 +1,13 @@
 ---
 import Hero from '@/components/Hero.astro'
 import Layout from '@/layouts/Layout.astro'
+
+const title = 'Thirtys Album - Comparte recuerdos únicos'
+const description =
+	'Bienvenido a Thirtys Album, una galería viva de momentos únicos entre amigos. 30 años tomando malas decisiones.'
+const canonical = 'https://thirtys-album.vlorente.dev/'
 ---
 
-<Layout>
+<Layout title={title} description={description} canonical={canonical}>
 	<Hero />
 </Layout>
