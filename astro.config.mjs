@@ -19,6 +19,10 @@ export default defineConfig({
 	build: {
 		inlineStylesheets: 'always',
 	},
-	adapter: vercel(),
+	adapter: vercel({
+		webAnalytics: {
+			enabled: true,
+		},
+	}),
 	site: 'https://thirtys-album.vlorente.dev',
 })
