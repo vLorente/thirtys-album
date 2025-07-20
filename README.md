@@ -1,3 +1,22 @@
+<div align="center">
+<h2>
+    Thirtys Album 📷
+</h2>
+
+</div>
+
+<p>Aplicación SSR (Astro + Firebase) para subir imágenes a una galería compartida. Las imágenes se almacenan en Firebase Storage, y se registran en Firestore junto con metadatos como nombre, dimensiones y autor.</p>
+
+<div align="center">
+
+![Astro Badge](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff&style=flat)
+![GitHub issues](https://img.shields.io/github/issues/vlorente/thirtys-album)
+![GitHub PRs](https://img.shields.io/github/issues-pr/vlorente/thirtys-album)
+
+</div>
+
+<img src="portada.png"></img>
+
 # Thirtys Album
 
 Aplicación SSR (Astro + Firebase) para subir imágenes a una galería compartida. Las imágenes se almacenan en Firebase Storage, y se registran en Firestore junto con metadatos como nombre, dimensiones y autor.
@@ -9,6 +28,7 @@ Aplicación SSR (Astro + Firebase) para subir imágenes a una galería compartid
 - Almacenamiento en Firebase Storage.
 - Metadatos guardados en Firestore.
 - Galería de imágenes pública en modo lectura.
+- Componente Drag & Drop con React.
 
 ## 🧱 Tecnologías
 
@@ -17,14 +37,14 @@ Aplicación SSR (Astro + Firebase) para subir imágenes a una galería compartid
 - [Firebase Auth](https://firebase.google.com/docs/auth)
 - [Firebase Firestore](https://firebase.google.com/docs/firestore)
 - [Firebase Storage](https://firebase.google.com/docs/storage)
-- [image-size](https://www.npmjs.com/package/image-size)
+- [Vercel](https://vercel.com/docs/frameworks/astro)
 
 ## 📦 Instalación
 
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/tuusuario/thirtys-album.git
+git clone https://github.com/vLorente/thirtys-album.git
 cd thirtys-album
 ```
 
@@ -66,21 +86,6 @@ PUBLIC_FIREBASE_MEASUREMENT_ID=PUBLIC_FIREBASE_MEASUREMENT_ID
 pnpm astro dev
 ```
 
-## 🗂 Estructura del proyecto
-
-```bash
-src/
-├── firebase/
-│ ├── server.ts # Inicialización de firebase-admin
-│ ├── storage.ts # Función para subir imagen y obtener URL firmada
-│ └── db.ts # Acceso a Firestore (opcional)
-├── pages/
-│ └── api/
-│ └── upload.ts # Endpoint para subir imágenes
-├── types/
-│ └── uploaded-image.ts # Interface UploadedImage
-```
-
 ## 🔐 Reglas de seguridad de Firebase
 
 ```javascript
@@ -111,11 +116,15 @@ service cloud.firestore {
 
 ```json
 {
+  "id": "asdsa%2F2bfbb5c5-ed2e-457b-bcf1-467c43311ad5-asdasss-kxmk21.webp",
+  "bucket": "your-bucket",
   "name": "abc123-image.jpg",
+  "size": "23132",
   "url": "https://firebasestorage.googleapis.com/...",
-  "userId": "uid-123",
+  "thumbnailId": "asdsa%2F2bfbb5c5-ed2e-457b-bcf1-467c43311ad5-asdasss-kxmk21.webp",
+  "thumbnailUrl": "https://firebasestorage.googleapis.com/...",
   "width": 1920,
   "height": 1080,
-  "createdAt": "2025-07-14T12:34:56Z"
+  "timeCreated": "2025-07-14T12:34:56Z"
 }
 ```
