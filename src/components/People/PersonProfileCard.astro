@@ -32,23 +32,30 @@ const bars = generateRandomBars()
 			<div class="grid grid-cols-2 gap-4 px-4 py-4 text-left font-normal text-white">
 				<section class="flex flex-col">
 					<span class="text-sm text-white/60">Edad</span>
-					<strong class="text-md animate-fade-in animate-delay-250">{person.age} años</strong>
+					<strong class="text-md animate-fade-in animate-delay-250 capitalize"
+						>{person.age} años</strong
+					>
 				</section>
 				<section class="flex flex-col">
 					<span class="text-sm text-white/60">Canción</span>
-					<strong class="text-md animate-fade-in animate-delay-400">{person.song}</strong>
+					<strong class="text-md animate-fade-in animate-delay-400 capitalize">{person.song}</strong
+					>
 				</section>
 				<section class="flex flex-col">
 					<span class="text-sm text-white/60">Nacimiento</span>
-					<strong class="text-md animate-fade-in animate-delay-[350ms]">{birthDate}</strong>
+					<strong class="text-md animate-fade-in animate-delay-[350ms] capitalize"
+						>{birthDate}</strong
+					>
 				</section>
 				<section class="flex flex-col">
 					<span class="text-sm text-white/60">Bebida</span>
-					<strong class="text-md animate-fade-in animate-delay-300">{person.drink}</strong>
+					<strong class="text-md animate-fade-in animate-delay-300 capitalize"
+						>{person.drink}</strong
+					>
 				</section>
 				<section class="flex flex-col">
 					<span class="text-sm text-white/60">¿Si me pierdo?</span>
-					<strong class="text-md animate-fade-in animate-delay-300">{person.pub}</strong>
+					<strong class="text-md animate-fade-in animate-delay-300 capitalize">{person.pub}</strong>
 				</section>
 			</div>
 		</section>
