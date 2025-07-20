@@ -29,6 +29,7 @@ Aplicación SSR (Astro + Firebase) para subir imágenes a una galería compartid
 - Metadatos guardados en Firestore.
 - Galería de imágenes pública en modo lectura.
 - Componente Drag & Drop con React.
+- Optimización de imágenes desde servidor con los endpoints de Astro.
 
 ## 🧱 Tecnologías
 
