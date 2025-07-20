@@ -24,7 +24,6 @@ const {
 	<meta name="generator" content={Astro.generator} />
 	<title>{siteData.title}</title>
 	<meta name="description" content={description} />
-	{canonical && <link rel="canonical" href={canonical} />}
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
@@ -37,7 +36,13 @@ const {
 	<link rel="sitemap" href="/sitemap-index.xml" />
 
 	<!-- SEO -->
-	<Seo title={title} description={description} image={siteData.siteImage} noindex="false" />
+	<Seo
+		title={title}
+		canonical={canonical}
+		description={description}
+		image={siteData.siteImage}
+		noindex="false"
+	/>
 
 	<ClientRouter />
 </head>

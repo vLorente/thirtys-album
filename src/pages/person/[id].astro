@@ -21,8 +21,6 @@ const birthDate = person.birthDate.toLocaleDateString('es-ES', {
 	day: 'numeric',
 })
 
-export const prerender = true
-
 export const getStaticPaths = () => {
 	return PEOPLE.map((person) => ({
 		params: { id: person.id },
