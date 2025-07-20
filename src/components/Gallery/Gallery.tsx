@@ -6,7 +6,7 @@ import { useRef } from 'preact/hooks'
 import { useGalleryImages } from '@/hooks/useGalleryImages'
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 import { useResponsiveMaxColWidth } from '@/hooks/useResponsiveMaxColWidth'
-import EmptyGallery from '@/components/Gallery/EmptyGallery' // Asegúrate de que la ruta sea correcta
+import EmptyGallery from '@/components/Gallery/EmptyGallery'
 
 export default function Gallery() {
 	const { images, hasMore, loadMore, loading } = useGalleryImages()
@@ -21,7 +21,7 @@ export default function Gallery() {
 	})
 
 	return (
-		<section className="pt-18 min-h-screen w-full px-2 md:px-5">
+		<section className="pt-18 relative min-h-screen w-full px-2 md:px-5">
 			{images.length === 0 && !loading ? (
 				<EmptyGallery />
 			) : (
