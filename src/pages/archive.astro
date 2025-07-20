@@ -1,8 +1,13 @@
 ---
 import Gallery from '@/components/Gallery/Gallery'
 import Layout from '@/layouts/Layout.astro'
+
+const title = 'Galería - Thirtys Album'
+const description =
+	'Explora la galería de imágenes de Thirtys Album: recuerdos únicos, momentos compartidos y mucha nostalgia. ¡Descúbrelos todos!'
+const canonical = 'https://thirtys-album.vlorente.dev/archive'
 ---
 
-<Layout pageTitle="Galería">
+<Layout title={title} description={description} canonical={canonical}>
 	<Gallery client:load />
 </Layout>

@@ -3,11 +3,19 @@ import BaseHead from '@/components/BaseHead.astro'
 import Header from '@/components/Header.astro'
 import '@/styles/global.css'
 import Analytics from '@vercel/analytics/astro'
+
+interface Props {
+	title: string
+	description: string
+	canonical: string
+}
+
+const { title, description, canonical } = Astro.props
 ---
 
 <!doctype html>
 <html lang="es">
-	<BaseHead />
+	<BaseHead title={title} description={description} canonical={canonical} />
 	<body id="body" class="min-h-screen bg-pink-100">
 		<Header />
 		<main id="main-content">

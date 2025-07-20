@@ -6,6 +6,11 @@ import Layout from '@/layouts/Layout.astro'
 import { getAuth } from 'firebase-admin/auth'
 import image from 'public/images/hero-logo.webp'
 
+const title = 'Iniciar sesión - Thirtys Album'
+const description =
+	'¿Formas parte del grupo? Accede a Thirtys Album para actualziar las imágenes de la galería.'
+const canonical = 'https://thirtys-album.vlorente.dev/sigin'
+
 /* Check if the user is authenticated */
 const auth = getAuth(app)
 if (Astro.cookies.has('__session')) {
@@ -17,7 +22,7 @@ if (Astro.cookies.has('__session')) {
 }
 ---
 
-<Layout>
+<Layout title={title} description={description} canonical={canonical}>
 	<section class="relative flex min-h-screen w-full flex-col">
 		<div class="m-4 mt-24 lg:m-auto lg:max-w-3xl">
 			<Title text="Login" className="m-4 sm:mt-24" />

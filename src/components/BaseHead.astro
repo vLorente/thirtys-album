@@ -13,7 +13,7 @@ interface Props {
 const {
 	title = siteData.title,
 	description = siteData.description,
-	canonical,
+	canonical = siteData.siteUrl,
 	robots,
 } = Astro.props
 ---
