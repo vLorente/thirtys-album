@@ -16,6 +16,7 @@ export const PEOPLE: Person[] = [
 		drink: 'Daiquiri de fresita',
 		pub: 'En mi cama con el Toby',
 		song: 'Auxiliar de Amaia',
+		songUrl: 'https://youtu.be/Fliis89F-fQ?si=RfO55LtWT1vZjKwa',
 		socials: [
 			{
 				id: 'instagram',
@@ -52,7 +53,8 @@ export const PEOPLE: Person[] = [
 		city: 'Tobarra',
 		drink: 'Zumo de melocotón',
 		pub: 'En Temper',
-		song: 'Canción favorita',
+		song: 'Under Radar de L.A.',
+		songUrl: 'https://youtu.be/Yv2VVy0pSCM?si=8wAdvCIcgbTDCDXQ',
 		socials: [
 			{
 				id: 'instagram',
@@ -65,28 +67,6 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			// {
-			// 	id: 'tiktok',
-			// 	name: 'TikTok',
-			// 	url: 'https://www.tiktok.com/@ajsofjfpme',
-			// 	label: 'Visitar perfil de Carlos en TikTok',
-			// 	image: {
-			// 		logo: TikTok,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
-			// {
-			// 	id: 'x',
-			// 	name: 'X',
-			// 	url: 'https://x.com/',
-			// 	label: 'Visitar perfil de Carlos en X',
-			// 	image: {
-			// 		logo: X,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
 		],
 	},
 	// ESTHER
@@ -101,6 +81,7 @@ export const PEOPLE: Person[] = [
 		drink: 'zumo de naranja',
 		pub: 'no podría perderme en ningún sitio, lo subiría siempre a instagram',
 		song: 'Saharabbey Road de Vetusta Morla',
+		songUrl: 'https://youtu.be/2kZhsiOj3ss?si=UotqxFyKck1aQPwt',
 		socials: [
 			{
 				id: 'instagram',
@@ -113,28 +94,6 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			// {
-			// 	id: 'tiktok',
-			// 	name: 'TikTok',
-			// 	url: 'https://www.tiktok.com/',
-			// 	label: 'Visitar perfil de Esther en TikTok',
-			// 	image: {
-			// 		logo: TikTok,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
-			// {
-			// 	id: 'x',
-			// 	name: 'X',
-			// 	url: 'https://x.com/',
-			// 	label: 'Visitar perfil de Esther en X',
-			// 	image: {
-			// 		logo: X,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
 		],
 	},
 	// MARIU
@@ -149,6 +108,7 @@ export const PEOPLE: Person[] = [
 		drink: 'Estrella Levante fresquita',
 		pub: 'en el escenario de ellyelladjs',
 		song: 'Envolver',
+		songUrl: 'https://youtu.be/hFCjGiawJi4?si=njdsX1UF3YGNEUmQ',
 		socials: [
 			{
 				id: 'instagram',
@@ -161,28 +121,6 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			// {
-			// 	id: 'tiktok',
-			// 	name: 'TikTok',
-			// 	url: 'https://www.tiktok.com/@ajsofjfpme',
-			// 	label: 'Visitar perfil de Mariu en TikTok',
-			// 	image: {
-			// 		logo: TikTok,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
-			// {
-			// 	id: 'x',
-			// 	name: 'X',
-			// 	url: 'https://x.com/',
-			// 	label: 'Visitar perfil de Mariu en X',
-			// 	image: {
-			// 		logo: X,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
 		],
 	},
 	// VALENTIN
@@ -196,7 +134,8 @@ export const PEOPLE: Person[] = [
 		city: 'Ceutí',
 		drink: 'Una Cerveza Cualquiera',
 		pub: 'En el PC',
-		song: 'Kerosene - Crystal Castles',
+		song: 'Otra noche - Kaotiko',
+		songUrl: 'https://youtu.be/M5Rm0yzDTus?si=-IWYDD5Wrejw5_iF',
 		socials: [
 			{
 				id: 'instagram',
@@ -246,28 +185,6 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			// {
-			// 	id: 'tiktok',
-			// 	name: 'TikTok',
-			// 	url: 'https://www.tiktok.com/@',
-			// 	label: 'Visitar perfil de Vicky en TikTok',
-			// 	image: {
-			// 		logo: TikTok,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
-			// {
-			// 	id: 'x',
-			// 	name: 'X',
-			// 	url: 'https://x.com/',
-			// 	label: 'Visitar perfil de Vicky en X',
-			// 	image: {
-			// 		logo: X,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
 		],
 	},
 	// MAJO
@@ -282,6 +199,7 @@ export const PEOPLE: Person[] = [
 		drink: 'Mojito',
 		pub: 'Maldivas',
 		song: 'El fin del mundo',
+		songUrl: 'https://youtu.be/6cF6b6pLijE?si=_vZod3_BWYCWNuMQ',
 		socials: [
 			{
 				id: 'instagram',
@@ -294,28 +212,6 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			// {
-			// 	id: 'tiktok',
-			// 	name: 'TikTok',
-			// 	url: 'https://www.tiktok.com/@',
-			// 	label: 'Visitar perfil de Majo en TikTok',
-			// 	image: {
-			// 		logo: TikTok,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
-			// {
-			// 	id: 'x',
-			// 	name: 'X',
-			// 	url: 'https://x.com/',
-			// 	label: 'Visitar perfil de Majo en X',
-			// 	image: {
-			// 		logo: X,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
 		],
 	},
 	// ADRIAN
@@ -330,6 +226,7 @@ export const PEOPLE: Person[] = [
 		drink: 'La Cerveza',
 		pub: 'en la montaña',
 		song: 'Asuntos Serios de El puchero del hortelano',
+		songUrl: 'https://youtu.be/-8fYXGv-rp8?si=5TaTaOe8GLKRstG8',
 		socials: [
 			{
 				id: 'instagram',
@@ -342,28 +239,6 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			// {
-			// 	id: 'tiktok',
-			// 	name: 'TikTok',
-			// 	url: 'https://www.tiktok.com/@',
-			// 	label: 'Visitar perfil de Adrián en TikTok',
-			// 	image: {
-			// 		logo: TikTok,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
-			// {
-			// 	id: 'x',
-			// 	name: 'X',
-			// 	url: 'https://x.com/',
-			// 	label: 'Visitar perfil de Adrián en X',
-			// 	image: {
-			// 		logo: X,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
 		],
 	},
 	// MARIA
@@ -390,28 +265,6 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			// {
-			// 	id: 'tiktok',
-			// 	name: 'TikTok',
-			// 	url: 'https://www.tiktok.com/@',
-			// 	label: 'Visitar perfil de María en TikTok',
-			// 	image: {
-			// 		logo: TikTok,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
-			// {
-			// 	id: 'x',
-			// 	name: 'X',
-			// 	url: 'https://x.com/',
-			// 	label: 'Visitar perfil de María en X',
-			// 	image: {
-			// 		logo: X,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
 		],
 	},
 	// EU
@@ -438,28 +291,6 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			// {
-			// 	id: 'tiktok',
-			// 	name: 'TikTok',
-			// 	url: 'https://www.tiktok.com/@',
-			// 	label: 'Visitar perfil de Eu en TikTok',
-			// 	image: {
-			// 		logo: TikTok,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
-			// {
-			// 	id: 'x',
-			// 	name: 'X',
-			// 	url: 'https://x.com/',
-			// 	label: 'Visitar perfil de Eu en X',
-			// 	image: {
-			// 		logo: X,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
 		],
 	},
 	// FATIMA
@@ -486,28 +317,6 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			// {
-			// 	id: 'tiktok',
-			// 	name: 'TikTok',
-			// 	url: 'https://www.tiktok.com/@',
-			// 	label: 'Visitar perfil de Fátima en TikTok',
-			// 	image: {
-			// 		logo: TikTok,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
-			// {
-			// 	id: 'x',
-			// 	name: 'X',
-			// 	url: 'https://x.com/',
-			// 	label: 'Visitar perfil de Fátima en X',
-			// 	image: {
-			// 		logo: X,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
 		],
 	},
 	// RAFA
@@ -534,28 +343,6 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			// {
-			// 	id: 'tiktok',
-			// 	name: 'TikTok',
-			// 	url: 'https://www.tiktok.com/@',
-			// 	label: 'Visitar perfil de Rafa en TikTok',
-			// 	image: {
-			// 		logo: TikTok,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
-			// {
-			// 	id: 'x',
-			// 	name: 'X',
-			// 	url: 'https://x.com/',
-			// 	label: 'Visitar perfil de Rafa en X',
-			// 	image: {
-			// 		logo: X,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
 		],
 	},
 	// ROCIO
@@ -582,28 +369,6 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			// {
-			// 	id: 'tiktok',
-			// 	name: 'TikTok',
-			// 	url: 'https://www.tiktok.com/@',
-			// 	label: 'Visitar perfil de Rocío en TikTok',
-			// 	image: {
-			// 		logo: TikTok,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
-			// {
-			// 	id: 'x',
-			// 	name: 'X',
-			// 	url: 'https://x.com/',
-			// 	label: 'Visitar perfil de Rocío en X',
-			// 	image: {
-			// 		logo: X,
-			// 		width: 200,
-			// 		height: 200,
-			// 	},
-			// },
 		],
 	},
 ] as const

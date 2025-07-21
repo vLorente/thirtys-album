@@ -40,6 +40,7 @@ export interface Person {
 	drink: string
 	pub: string
 	song: string
+	songUrl?: string
 	gallery?: boolean
 	socials: Social[]
 	bio: string
