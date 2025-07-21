@@ -1,4 +1,6 @@
 ---
+import YoutubeIcon from '@/components/Icons/YoutubeIcon'
+
 const { person, birthDate } = Astro.props
 
 const generateRandomBars = () => {
@@ -28,7 +30,7 @@ const bars = generateRandomBars()
 					{person.realName}
 				</h1>
 			</section>
-			<!-- Otros datos del luchador -->
+			<!-- Otros datos -->
 			<div class="grid grid-cols-2 gap-4 px-4 py-4 text-left font-normal text-white">
 				<section class="flex flex-col">
 					<span class="text-sm text-white/60">Edad</span>
@@ -38,8 +40,24 @@ const bars = generateRandomBars()
 				</section>
 				<section class="flex flex-col">
 					<span class="text-sm text-white/60">Canción</span>
-					<strong class="text-md animate-fade-in animate-delay-400 capitalize">{person.song}</strong
+					<strong
+						class="text-md animate-fade-in animate-delay-400 flex items-center gap-2 capitalize"
 					>
+						{person.song}
+						{
+							person.songUrl && (
+								<a
+									href={person.songUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={`Abrir ${person.song} en YouTube`}
+									class="transition-transform hover:scale-105"
+								>
+									<YoutubeIcon width={30} height={30} className="fill-red-600" />
+								</a>
+							)
+						}
+					</strong>
 				</section>
 				<section class="flex flex-col">
 					<span class="text-sm text-white/60">Nacimiento</span>
@@ -59,7 +77,7 @@ const bars = generateRandomBars()
 				</section>
 			</div>
 		</section>
-		<!-- Imagen del luchador -->
+		<!-- Imagen -->
 		<section
 			class="item-center animate-fade-in animate-delay-500 order-1 col-span-2 flex justify-center sm:order-2"
 		>
@@ -73,18 +91,11 @@ const bars = generateRandomBars()
 		</section>
 	</div>
 
-	<!-- Información adicional y código de barras -->
 	<footer class="bg-dark-magenta flex items-center justify-between px-2 py-3 pl-4">
 		<section class="flex flex-col">
 			<span class="text-sm text-white/60">Ciudad</span>
 			<strong class="text-md animate-fade-in animate-delay-400">{person.city}</strong>
 		</section>
-		<!-- <section class="flex flex-col items-center space-x-2">
-			<span class="text-sm text-white/60">Ciudad</span>
-			<strong class="text-md animate-fade-in animate-delay-700 lowercase text-white"
-				>{person.city}</strong
-			>
-		</section> -->
 
 		<section class="animate-fade-in animate-delay-800 flex items-center justify-center space-x-2">
 			<img
