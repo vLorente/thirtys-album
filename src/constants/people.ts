@@ -1,6 +1,5 @@
 import Instagram from '@/assets/svg/instagram.svg'
 import TikTok from '@/assets/svg/tiktok.svg'
-import X from '@/assets/svg/x.svg'
 import type { Person } from '@/types/people'
 import { calculateAge } from '@/utils/calc-age'
 
@@ -9,14 +8,14 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'teresa',
 		name: 'Teresa',
-		bio: ' ',
+		bio: 'Palabra clave: Altruista\nGrado de postureo: 2/10 (si puede no aparece, por eso siempre sale en movimiento).\nCompañera del Toby a tiempo completo, funcionaria a tiempo parcial. Le encanta viajar aunque le dan miedo los aviones, le encantan los parques de atracciones... y sí, le dan miedo las atracciones. En sus contradicciones está su esencia. Dale dos cervezas y conocerás a su versión desenfrenada ¿Estás preparada?\nAdvertencia: Encontrar un restaurante en el que pueda comer es complicado, ya que no come nada con OJOS.',
 		realName: 'Teresa Poveda Iniesta',
 		birthDate: new Date(1995, 9, 2),
 		age: calculateAge(new Date(1995, 9, 2)),
 		city: 'Tobarra',
-		drink: 'Gin Tonic',
-		pub: 'Con el Toby',
-		song: 'Canción favorita',
+		drink: 'Daiquiri de fresita',
+		pub: 'En mi cama con el Toby',
+		song: 'Auxiliar de Amaia',
 		socials: [
 			{
 				id: 'instagram',
@@ -46,13 +45,13 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'carlos',
 		name: 'Carlos',
-		bio: ' ',
+		bio: 'Palabra clave: Complicidad\nGrado de postureo: 7/10 (sube si está tranquilo, baja si hay fiesta).\nAlgunos lo conocen como Mike, todos lo conocen por su habilidad para conseguir una cerveza en cualquier situación.\nAdvertencia: se pierde con facilidad. No dejar sin supervisión.',
 		realName: 'Carlos Izquierdo (Mike)',
 		birthDate: new Date(1995, 2, 28),
 		age: calculateAge(new Date(1995, 2, 28)),
 		city: 'Tobarra',
-		drink: 'Gin Tonic',
-		pub: 'Babilonia',
+		drink: 'Zumo de melocotón',
+		pub: 'En Temper',
 		song: 'Canción favorita',
 		socials: [
 			{
@@ -94,14 +93,14 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'esther',
 		name: 'Esther',
-		bio: ' ',
+		bio: 'Palabra clave: Refugio\nGrado de postureo: 9/10 (aunque el bronceador a veces tenga otros planes).\nAmante del postureo y cazadora oficial de la foto perfecta. Ha dejado atrás los bocadillos de cangrejo del recreo para convertirse en chef de platos ricos y 100% instagrameables.\nHacerla feliz es fácil: una cervecita, unas tapas y un buen rato de cotilleo y dramas ajenos (que si son propios, también se comentan).',
 		realName: 'Esther Alfaro',
 		birthDate: new Date(1995, 7, 25),
 		age: calculateAge(new Date(1995, 7, 25)),
 		city: 'Tobarra',
-		drink: 'Gin Limón',
-		pub: 'Babilonia',
-		song: 'Canción favorita',
+		drink: 'zumo de naranja',
+		pub: 'no podría perderme en ningún sitio, lo subiría siempre a instagram',
+		song: 'Saharabbey Road de Vetusta Morla',
 		socials: [
 			{
 				id: 'instagram',
@@ -142,14 +141,14 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'mariu',
 		name: 'Mariu',
-		bio: ' ',
+		bio: 'Palabra clave: Energía\nGrado de postureo: 8/10\nSiempre se implica con todo y todos, le encantan las cervecitas en el Babi y los buenos salseos. Se le ha visto adoptar la forma de Cassandra en sus momentos de ira.\nAdvertencia: vigilar de cerca si hace el baile de Anita, puede acabar con chicles pegados en el pelo.',
 		realName: 'María Eugenia',
 		birthDate: new Date(1995, 10, 19),
 		age: calculateAge(new Date(1995, 10, 19)),
 		city: 'Tobarra',
-		drink: 'Gin Tonic',
-		pub: 'Babilonia',
-		song: 'Canción favorita',
+		drink: 'Estrella Levante fresquita',
+		pub: 'en el escenario de ellyelladjs',
+		song: 'Envolver',
 		socials: [
 			{
 				id: 'instagram',
@@ -190,14 +189,14 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'valen',
 		name: 'Valentín',
-		bio: ' ',
+		bio: 'Palabra clave: FOMO\nGrado de postureo: 7/10 (Mejor no le hagas fotos pasadas las 3PM).\nSe apunta a todos los planes: festis, fiestas de pueblo, bodas… lo que haya. Y si hay que quedarse hasta el final, él se queda, e increíblemente siempre encuentra a alguien. La cervecita es su debilidad, y en Tobarra ha encontrado su lugar en el mundo.\nAdvertencia: no dejar invitar a chupitos, copas o cervezas. Su tarjeta pide AYUD.',
 		realName: 'Valentín Lorente',
 		birthDate: new Date(1994, 7, 21),
 		age: calculateAge(new Date(1994, 7, 21)),
 		city: 'Ceutí',
-		drink: 'Cerveza',
-		pub: 'Babilonia',
-		song: 'Tempo 2 - Carolina Durante',
+		drink: 'Una Cerveza Cualquiera',
+		pub: 'En el PC',
+		song: 'Kerosene - Crystal Castles',
 		socials: [
 			{
 				id: 'instagram',
@@ -221,31 +220,20 @@ export const PEOPLE: Person[] = [
 					height: 200,
 				},
 			},
-			{
-				id: 'x',
-				name: 'X',
-				url: 'https://x.com/vlorente94',
-				label: 'Visitar perfil de Valentín en X',
-				image: {
-					logo: X,
-					width: 200,
-					height: 200,
-				},
-			},
 		],
 	},
 	// VICKY
 	{
 		id: 'vicky',
 		name: 'Vicky',
-		bio: ' ',
+		bio: 'Palabra clave: Soñadora\nGrado de postureo: 8/10 (sus mejores fotos siempre salen en conciertos, con la sonrisa al máximo)\nQuiere viajar por el mundo, aunque es complicado pillar vuelos desde la Luna. Hacerla reír es fácil, pero cuidado: si lo consigues, prepárate para un bucle infinito de risas contagiosas (y no es tópico, es real).\nCuidado, se atreve a todo, no le propongas cosas de las que te puedas arrepentir.',
 		realName: 'Victoria',
 		birthDate: new Date(1995, 2, 4),
 		age: calculateAge(new Date(1995, 2, 4)),
 		city: 'Tobarra',
 		drink: 'Freeway',
 		pub: 'La Luna',
-		song: 'Canción favoria',
+		song: 'Alguna de K-POP',
 		socials: [
 			{
 				id: 'instagram',
@@ -286,14 +274,14 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'majo',
 		name: 'Majo',
-		bio: ' ',
+		bio: 'Palabra clave: Encanto\nGrado de postureo: 9/10 (siempre lista para vestirse de guapa)\nPuedes contar con ella en los buenos y malos momentos; siempre estará ahí para ayudarte. El tinto siempre le entra bien, y más si estamos juntos; mejora aún más si es en un destino paradisiaco, pero le vale un bar de Juan.\nAdvertencia: NO enfadar, aunque no lo parezca tiene genio.',
 		realName: 'María José Jiménez',
 		birthDate: new Date(1995, 5, 22),
 		age: calculateAge(new Date(1995, 5, 22)),
 		city: 'Tobarra',
-		drink: 'Ron Cola',
-		pub: 'Con Gabriel',
-		song: 'Canción favoria',
+		drink: 'Mojito',
+		pub: 'Maldivas',
+		song: 'El fin del mundo',
 		socials: [
 			{
 				id: 'instagram',
@@ -334,14 +322,14 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'adrian',
 		name: 'Adrián',
-		bio: ' ',
+		bio: 'Palabra clave: Explorador\nGrado de postureo: 5/10 (ha tenido que mejorar desde que está con su novia)\nEs la persona que más gente conoce en el mundo; podría reducir a la mitad la teoría de los 6 grados de separación. Siempre está dispuesto a disfrutar de todo y hacer que la gente sienta lo mismo.\nNo confundir con su perro Milú: aunque lo parezca no comparten sangre.',
 		realName: 'Adrían Rodriguez',
 		birthDate: new Date(1994, 3, 3),
 		age: calculateAge(new Date(1994, 3, 3)),
 		city: 'Murcianico',
-		drink: 'Ron Cola',
-		pub: 'Babilonia',
-		song: 'Canción favoria',
+		drink: 'La Cerveza',
+		pub: 'en la montaña',
+		song: 'Asuntos Serios de El puchero del hortelano',
 		socials: [
 			{
 				id: 'instagram',
@@ -382,14 +370,14 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'maria',
 		name: 'María',
-		bio: ' ',
+		bio: 'Palabra clave: Gozadora\nGrado de postureo: 8/10 (una buena selfie le encanta)\nPuedes encontrártela cantando a viva voz en el coche; no te asustes, es su manera de desestresarse. Le encanta una buena cervecita, ya sea en un bar, un chiringuito o en casa, y si viene con compañía, mejor aún.\nAdvertencia: no le recuerdes la época de Disney Channel, podría obligarte a ver Camp Rock una y otra vez.',
 		realName: 'María López',
 		birthDate: new Date(1995, 6, 14),
 		age: calculateAge(new Date(1995, 6, 14)),
-		city: 'Tobarra/Ceutí',
+		city: 'Tobarra',
 		drink: 'Gin Tonic',
-		pub: 'Babilonia',
-		song: 'Canción favoria',
+		pub: 'Go Global',
+		song: 'N/A',
 		socials: [
 			{
 				id: 'instagram',
@@ -430,14 +418,14 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'eu',
 		name: 'Eu',
-		bio: ' ',
+		bio: 'Palabra clave: Chill\nGrado de postureo: 6/10 (es más de dejarse llevar)\nSiempre te va a sacar una sonrisa, aunque solo sea porque su felicidad se contagia. Dale una botellita de agua y te animará toda la noche como si fuera tequila.\nAdvertencia: no le dejéis volver a disfrazarse de plátano. Por favor, no más.',
 		realName: 'Eustaquio Cascales',
 		birthDate: new Date(1994, 5, 17),
 		age: calculateAge(new Date(1994, 5, 17)),
 		city: 'Ceutí',
-		drink: 'Agua Mineral',
-		pub: 'Babilonia',
-		song: 'Canción favoria',
+		drink: 'Aguita Mineral',
+		pub: 'Mazarrón',
+		song: 'N/A',
 		socials: [
 			{
 				id: 'instagram',
@@ -478,14 +466,14 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'fatima',
 		name: 'Fátima',
-		bio: ' ',
+		bio: 'Palabra clave: Detallista\nGrado de postureo: 9/10 (ser la reina de las fiestas requiere mucho esfuerzo y sacrificio).\nSiempre implicada con todo, aunque su apretada agenda no siempre lo ponga fácil Si consigues cuadrar un plan con ella, disfrutarás de su alegría y energía, que no es poca (que no es poca… recorrerse Disney varias veces no es cualquier cosa). Dejó atrás sus grandes borracheras… aunque un desliz lo puede tener cualquiera.\nAdvertencia: NO permitir que pida chupitos. Luego solo queda ella de pie, y tú preguntándote qué ha pasado.',
 		realName: 'Fátima Paterna',
 		birthDate: new Date(1995, 7, 13),
 		age: calculateAge(new Date(1995, 7, 13)),
 		city: 'Tobarra',
 		drink: 'Agua Mineral',
 		pub: 'En Disney',
-		song: 'Canción favoria',
+		song: 'N/A',
 		socials: [
 			{
 				id: 'instagram',
@@ -526,14 +514,14 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'rafa',
 		name: 'Rafa',
-		bio: ' ',
+		bio: 'Palabra clave: Pasión\nGrado de postureo 9/10 (salir mal en una foto no entra en sus planes).\nVive todo al máximo: lo bueno, lo malo, lo caótico… Con él, la vida siempre tiene un extra de intensidad. Aunque esté lejos, nunca falta una historia suya que contar. Y si se le puede llamar para que la escenifique, mejor aún.\nAdvertencia: no dejarlo solo en la noche. Siempre vuelve… pero con gente nueva.',
 		realName: 'Rafael Pastor',
 		birthDate: new Date(1995, 5, 24),
 		age: calculateAge(new Date(1995, 5, 24)),
-		city: 'Tobarra',
-		drink: 'Agua Mineral',
+		city: 'Cork',
+		drink: 'Líquido de alta graduación',
 		pub: 'En Cork',
-		song: 'Canción favoria',
+		song: 'N/A',
 		socials: [
 			{
 				id: 'instagram',
@@ -574,14 +562,14 @@ export const PEOPLE: Person[] = [
 	{
 		id: 'rocio',
 		name: 'Rocío',
-		bio: ' ',
+		bio: 'Palabra clave: Chispa\nGrado de postureo: 8/10 (le gusta salir bien, pero prefiere un buen tiktok)\nSiempre con una sonrisa, tiene el poder de hacer reír a cualquiera. Se adapta a todos los planes: si es tranquilo, te transmite paz; si es de fiesta… buena suerte siguiéndole el ritmo. Dale un poco de cariño y te lo devuelve multiplicado por diez.\nAdvertencia: no acercar a hombres motorizados ni uniformados.',
 		realName: 'Rocío Pinar',
 		birthDate: new Date(1995, 0, 30),
 		age: calculateAge(new Date(1995, 0, 30)),
 		city: 'Tobarra',
 		drink: 'Gin Tonic',
 		pub: 'En La Tarima',
-		song: 'Canción favoria',
+		song: 'N/A',
 		socials: [
 			{
 				id: 'instagram',
