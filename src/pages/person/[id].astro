@@ -30,11 +30,11 @@ export const getStaticPaths = () => {
 
 <Layout title={`${person.name}`} description={description} canonical={canonical}>
 	<section class="relative flex w-full flex-col-reverse lg:min-h-screen lg:flex-row">
-		<!-- Boxeador perfil -->
+		<!-- Perfil -->
 		<div
 			class="relative z-10 flex w-full flex-col items-center justify-center pl-0 pr-0 lg:flex-row lg:items-start lg:pr-8"
 		>
-			<!-- Imagenes del boxeador -->
+			<!-- Imagenes -->
 			<div
 				class="lg:min-w-sm relative mt-8 flex h-[60vh] w-full items-center justify-center px-6 pt-24 lg:mt-0 lg:h-[80vh] lg:w-1/2 lg:px-2 lg:pt-32"
 			>
@@ -51,15 +51,15 @@ export const getStaticPaths = () => {
 					transition:name={`text-${id}`}
 				/>
 			</div>
-			<!-- Fin de las imagenes del boxeador -->
+			<!-- Fin de las imagenes  -->
 
-			<!-- Tarjeta del boxeador -->
+			<!-- Tarjeta  -->
 			<div
 				class="flex w-full max-w-xl flex-col items-center justify-center space-y-4 px-8 text-white lg:min-h-screen lg:w-1/2 lg:px-0"
 			>
 				<PersonProfileCard person={person} birthDate={birthDate} />
 			</div>
-			<!-- Fin de la tarjeta del boxeador -->
+			<!-- Fin de la tarjeta  -->
 		</div>
 	</section>
 
@@ -83,8 +83,6 @@ export const getStaticPaths = () => {
 			</section>
 		)
 	}
-
-	<!-- Fin de video de entrenamientos -->
 </Layout>
 
 <style>

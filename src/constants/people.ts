@@ -134,8 +134,8 @@ export const PEOPLE: Person[] = [
 		city: 'Ceutí',
 		drink: 'Una Cerveza Cualquiera',
 		pub: 'En el PC',
-		song: 'Otra noche - Kaotiko',
-		songUrl: 'https://youtu.be/M5Rm0yzDTus?si=-IWYDD5Wrejw5_iF',
+		song: 'Sin Hablar de Repion',
+		songUrl: 'https://youtu.be/xI3RBjDcx9s?si=Y2iJ7F0eepBCHzbg',
 		socials: [
 			{
 				id: 'instagram',
