@@ -21,7 +21,6 @@ const serviceAccount = {
 }
 
 const initApp = () => {
-	console.info('Loading service account from env.')
 	return initializeApp({
 		credential: cert(serviceAccount as ServiceAccount),
 		storageBucket: import.meta.env.PUBLIC_FIREBASE_STORAGE_BUCKET,
