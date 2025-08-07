@@ -268,31 +268,31 @@ export const PEOPLE: Person[] = [
 		],
 	},
 	// EU
-	{
-		id: 'eu',
-		name: 'Eu',
-		bio: 'Palabra clave: Chill\nGrado de postureo: 6/10 (es más de dejarse llevar)\nSiempre te va a sacar una sonrisa, aunque solo sea porque su felicidad se contagia. Dale una botellita de agua y te animará toda la noche como si fuera tequila.\nAdvertencia: no le dejéis volver a disfrazarse de plátano. Por favor, no más.',
-		realName: 'Eustaquio Cascales',
-		birthDate: new Date(1994, 5, 17),
-		age: calculateAge(new Date(1994, 5, 17)),
-		city: 'Ceutí',
-		drink: 'Aguita Mineral',
-		pub: 'Mazarrón',
-		song: 'N/A',
-		socials: [
-			{
-				id: 'instagram',
-				name: 'Instagram',
-				url: 'https://www.instagram.com/eucascales',
-				label: 'Visitar perfil de Eu en Instagram',
-				image: {
-					logo: Instagram,
-					width: 200,
-					height: 200,
-				},
-			},
-		],
-	},
+	// {
+	// 	id: 'eu',
+	// 	name: 'Eu',
+	// 	bio: 'Palabra clave: Chill\nGrado de postureo: 6/10 (es más de dejarse llevar)\nSiempre te va a sacar una sonrisa, aunque solo sea porque su felicidad se contagia. Dale una botellita de agua y te animará toda la noche como si fuera tequila.\nAdvertencia: no le dejéis volver a disfrazarse de plátano. Por favor, no más.',
+	// 	realName: 'Eustaquio Cascales',
+	// 	birthDate: new Date(1994, 5, 17),
+	// 	age: calculateAge(new Date(1994, 5, 17)),
+	// 	city: 'Ceutí',
+	// 	drink: 'Aguita Mineral',
+	// 	pub: 'Mazarrón',
+	// 	song: 'N/A',
+	// 	socials: [
+	// 		{
+	// 			id: 'instagram',
+	// 			name: 'Instagram',
+	// 			url: 'https://www.instagram.com/eucascales',
+	// 			label: 'Visitar perfil de Eu en Instagram',
+	// 			image: {
+	// 				logo: Instagram,
+	// 				width: 200,
+	// 				height: 200,
+	// 			},
+	// 		},
+	// 	],
+	// },
 	// FATIMA
 	{
 		id: 'fatima',
