@@ -1,0 +1,109 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "🚀 Astro: Start Dev Server",
+			"command": "pnpm",
+			"args": ["dev"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"isBackground": true,
+			"problemMatcher": {
+				"owner": "astro",
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^.*astro.*dev.*$",
+					"endsPattern": "^.*Local:.*http://.*$"
+				}
+			}
+		},
+		{
+			"type": "shell",
+			"label": "🔧 Astro: Build Project",
+			"command": "pnpm",
+			"args": ["build"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"problemMatcher": ["$tsc"]
+		},
+		{
+			"type": "shell",
+			"label": "🔍 Astro: Preview Build",
+			"command": "pnpm",
+			"args": ["preview"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"dependsOn": "🔧 Astro: Build Project"
+		},
+		{
+			"type": "shell",
+			"label": "🧪 Run Tests",
+			"command": "pnpm",
+			"args": ["test"],
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"problemMatcher": ["$tsc"]
+		},
+		{
+			"type": "shell",
+			"label": "🧹 Lint & Format",
+			"command": "pnpm",
+			"args": ["lint"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"problemMatcher": ["$eslint-stylish"]
+		},
+		{
+			"type": "shell",
+			"label": "📦 Install Dependencies",
+			"command": "pnpm",
+			"args": ["install"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		}
+	]
+}

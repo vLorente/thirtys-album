@@ -50,6 +50,7 @@ export async function uploadImageToStorage(
 		url: url,
 		thumbnailUrl: thumbnailUrl,
 		thumbnailId: thumbFile.id,
+		uploadedBy: '',
 	}
 
 	return image

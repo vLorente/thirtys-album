@@ -1,30 +1,40 @@
 import type { UploadedImage } from '@/types/firebase'
 import { useCallback, useEffect, useState } from 'preact/hooks'
 
-export function useManageImages() {
+export function useManageImages(onlyMyImages: boolean = false) {
 	const [images, setImages] = useState<UploadedImage[]>([])
 	const [loading, setLoading] = useState(false)
 	const [selectedImages, setSelectedImages] = useState<string[]>([])
 	const [isDeleting, setIsDeleting] = useState(false)
 
-	// Cargar imágenes al montar el componente
+	// Cargar imágenes al montar el componente o cuando cambie el filtro
 	useEffect(() => {
 		loadImages()
-	}, [])
+	}, [onlyMyImages])
 
 	const loadImages = useCallback(async () => {
 		setLoading(true)
 		try {
-			const response = await fetch('/api/gallery/images')
+			// Llamar a la API para obtener las imágenes
+			// Parámetro omi = "only my images"
+			// Si onlyMyImages es true, se agrega el parámetro omi a la URL
+			const url = `/api/gallery/images${onlyMyImages ? '?omi=true' : ''}`
+			const response = await fetch(url)
 			const data = await response.json()
-			console.log('Imágenes cargadas para gestión:', data.images)
-			setImages(data.images || [])
+
+			if (response.ok) {
+				setImages(data.images || [])
+			} else {
+				console.error('Error del servidor:', data.error)
+				setImages([])
+			}
 		} catch (error) {
 			console.error('Error cargando imágenes:', error)
+			setImages([])
 		} finally {
 			setLoading(false)
 		}
-	}, [])
+	}, [onlyMyImages])
 
 	const refreshImages = useCallback(() => {
 		loadImages()
@@ -77,13 +87,9 @@ export function useManageImages() {
 			(img) => img.storageID && selectedImages.includes(img.storageID),
 		)
 
-		console.log('Imágenes seleccionadas:', selectedImages)
-		console.log('Objetos a eliminar:', imagesToDelete)
-
 		setIsDeleting(true)
 		try {
 			const result = await deleteImages(imagesToDelete)
-			console.log('Resultado de eliminación:', result)
 
 			if (result.success) {
 				setSelectedImages([])

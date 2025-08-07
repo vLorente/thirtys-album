@@ -39,8 +39,23 @@
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 	"[astro]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": "explicit"
+		}
 	},
 	"prettier.documentSelectors": ["**/*.astro"],
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"emmet.includeLanguages": {
+		"astro": "html"
+	},
+	"typescript.preferences.rename.enabled": true,
+	"typescript.preferences.includePackageJsonAutoImports": "auto",
+	"typescript.suggest.includeAutomaticOptionalChainCompletions": true,
+	"typescript.inlayHints.parameterNames.enabled": "all",
+	"typescript.inlayHints.variableTypes.enabled": true,
+	"typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+	"astro.typescript.allowArbitraryAttributes": false,
+	"astro.typescript.preferences.includeCompletionsForModuleExports": true
 }
