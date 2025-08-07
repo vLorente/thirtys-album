@@ -146,6 +146,7 @@ export default function ImageManager() {
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
 								viewBox="0 0 24 24"
+								style="animation: spin 1s linear infinite"
 							>
 								<circle
 									class="opacity-25"

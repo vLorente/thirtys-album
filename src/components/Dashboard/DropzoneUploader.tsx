@@ -181,39 +181,49 @@ export default function DropzoneUploader() {
 					</ul>
 				)}
 			</div>
-			{images.length > 0 && (
-				<button
-					onClick={handleUploadToFirebase}
-					class={`mt-4 flex items-center justify-center gap-2 rounded px-4 py-2 text-white transition ${
-						isUploading ? 'cursor-not-allowed bg-gray-500' : 'bg-blue-600 hover:bg-blue-700'
-					}`}
-					disabled={isUploading}
-				>
-					{isUploading && (
-						<svg
-							class="h-5 w-5 animate-spin text-white"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-						>
-							<circle
-								class="opacity-25"
-								cx="12"
-								cy="12"
-								r="10"
-								stroke="currentColor"
-								stroke-width="4"
-							></circle>
-							<path
-								class="opacity-75"
-								fill="currentColor"
-								d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-							></path>
-						</svg>
-					)}
-					<span>{isUploading ? 'Subiendo' : 'Subir Imágenes'}</span>
-				</button>
-			)}
+
+			<button
+				onClick={handleUploadToFirebase}
+				class={`mt-4 flex w-full items-center justify-center gap-2 rounded px-4 py-2 text-white transition ${
+					isUploading
+						? 'cursor-not-allowed bg-gray-500'
+						: images.length > 0
+							? 'bg-blue-600 hover:bg-blue-700'
+							: 'cursor-not-allowed bg-gray-400'
+				}`}
+				disabled={isUploading || images.length === 0}
+			>
+				{isUploading && (
+					<svg
+						class="h-5 w-5 animate-spin text-white"
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						style="animation: spin 1s linear infinite"
+					>
+						<circle
+							class="opacity-25"
+							cx="12"
+							cy="12"
+							r="10"
+							stroke="currentColor"
+							stroke-width="4"
+						></circle>
+						<path
+							class="opacity-75"
+							fill="currentColor"
+							d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+						></path>
+					</svg>
+				)}
+				<span>
+					{isUploading
+						? 'Subiendo...'
+						: images.length > 0
+							? `Subir ${images.length} imagen(es)`
+							: 'Selecciona imágenes para subir'}
+				</span>
+			</button>
 
 			{error && <p class="mt-2 text-sm text-red-500">{error}</p>}
 			<ToastContainer />
