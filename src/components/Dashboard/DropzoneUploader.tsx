@@ -101,7 +101,6 @@ export default function DropzoneUploader() {
 		const target = e.target as HTMLInputElement
 		const selected = Array.from(target.files || []).filter((file) => file.type.startsWith('image/'))
 		if (selected.length > 0) {
-			console.log(`Se han seleccionado ${selected.length} imagen(es)`)
 			addFiles(selected)
 		}
 

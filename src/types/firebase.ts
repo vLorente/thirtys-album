@@ -10,5 +10,5 @@ export interface UploadedImage {
 	height: number | undefined
 	width: number | undefined
 	timeCreated: string | undefined
-	// uploadedBy: string | undefined // UID del usuario autenticado
+	uploadedBy: string | undefined // UID del usuario autenticado (requerido para nuevas imágenes)
 }

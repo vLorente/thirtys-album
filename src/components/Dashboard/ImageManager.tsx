@@ -1,7 +1,10 @@
 import { useToastManager } from '@/hooks/useToastManager'
 import { useManageImages } from '@/hooks/useManageImages'
+import { useState } from 'preact/hooks'
 
 export default function ImageManager() {
+	const [onlyMyImages, setOnlyMyImages] = useState(false)
+
 	const {
 		images,
 		loading,
@@ -16,7 +19,7 @@ export default function ImageManager() {
 		totalCount,
 		hasSelection,
 		allSelected,
-	} = useManageImages()
+	} = useManageImages(onlyMyImages)
 
 	const { showToast, ToastContainer } = useToastManager()
 
@@ -49,6 +52,21 @@ export default function ImageManager() {
 					disabled={loading}
 				>
 					🔄 Recargar
+				</button>
+			</div>
+
+			{/* Filtro para mostrar solo mis imágenes */}
+			<div class="mb-4 w-full">
+				<button
+					onClick={() => setOnlyMyImages(!onlyMyImages)}
+					class={`w-full rounded px-3 py-2 text-sm transition ${
+						onlyMyImages
+							? 'bg-purple-100 text-purple-700 hover:bg-purple-200'
+							: 'bg-amber-100 text-gray-700 hover:bg-amber-200'
+					}`}
+					disabled={loading}
+				>
+					{!onlyMyImages ? '👤 Imágenes subidas por mi' : '🌐 Todas las imágenes'}
 				</button>
 			</div>
 
