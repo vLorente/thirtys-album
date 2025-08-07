@@ -40,7 +40,7 @@ export async function uploadImageToStorage(
 	const thumbnailUrl = `${baseUrl}/${thumbPath}`
 
 	const image: UploadedImage = {
-		id: originalFile.id,
+		storageID: originalFile.id,
 		name: originalFile.metadata.name,
 		bucket: originalFile.metadata.bucket,
 		size: originalFile.metadata.size?.toString(),
@@ -53,4 +53,39 @@ export async function uploadImageToStorage(
 	}
 
 	return image
+}
+
+export async function deleteImageFromStorage(image: UploadedImage): Promise<void> {
+	const bucket = storage.bucket()
+	const deletePromises: Promise<any>[] = []
+
+	// Eliminar imagen original - extraer path de la URL
+	if (image.url) {
+		const baseUrl = `https://storage.googleapis.com/${bucket.name}/`
+		const originalPath = image.url.replace(baseUrl, '')
+		deletePromises.push(
+			bucket
+				.file(originalPath)
+				.delete()
+				.catch((err) => {
+					console.warn(`Error eliminando archivo original ${originalPath}:`, err)
+				}),
+		)
+	}
+
+	// Eliminar thumbnail - extraer path de la URL
+	if (image.thumbnailUrl) {
+		const baseUrl = `https://storage.googleapis.com/${bucket.name}/`
+		const thumbPath = image.thumbnailUrl.replace(baseUrl, '')
+		deletePromises.push(
+			bucket
+				.file(thumbPath)
+				.delete()
+				.catch((err) => {
+					console.warn(`Error eliminando thumbnail ${thumbPath}:`, err)
+				}),
+		)
+	}
+
+	await Promise.all(deletePromises)
 }

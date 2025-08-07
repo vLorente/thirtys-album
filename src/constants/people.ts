@@ -251,7 +251,7 @@ export const PEOPLE: Person[] = [
 		age: calculateAge(new Date(1995, 6, 14)),
 		city: 'Tobarra',
 		drink: 'Gin Tonic',
-		pub: 'Go Global',
+		pub: 'N/A',
 		song: 'N/A',
 		socials: [
 			{
@@ -357,7 +357,7 @@ export const PEOPLE: Person[] = [
 		drink: 'Estrella levante',
 		pub: 'Paraje natural Fuente de Marzo (Anna)',
 		song: 'Tortura de Shakira y Alejandro Sanz',
-		songUrl: "https://youtu.be/Dsp_8Lm1eSk?si=jcYZclEn2o7BRq_A",
+		songUrl: 'https://youtu.be/Dsp_8Lm1eSk?si=jcYZclEn2o7BRq_A',
 		socials: [
 			{
 				id: 'instagram',
