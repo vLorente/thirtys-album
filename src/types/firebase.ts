@@ -1,5 +1,6 @@
 export interface UploadedImage {
-	id: string | undefined
+	id?: string | undefined // ID en Firestore
+	storageID: string | undefined
 	name: string | undefined
 	bucket: string | undefined
 	url: string | undefined

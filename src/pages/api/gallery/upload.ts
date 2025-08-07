@@ -16,7 +16,8 @@ export const POST: APIRoute = async ({ request }) => {
 			const buffer = Buffer.from(arrayBuffer)
 
 			const result = await uploadImageToStorage(buffer, file.name, pathPrefix)
-			await saveImageDatabase(result)
+			const dbID = await saveImageDatabase(result)
+			result.id = dbID // Asignar el ID de Firestore al objeto UploadedImage
 
 			uploaded.push(result)
 		}

@@ -1,0 +1,89 @@
+---
+import DropzoneUploader from '@/components/Dashboard/DropzoneUploader'
+import ImageManager from '@/components/Dashboard/ImageManager'
+import LogoutButton from '@/components/Dashboard/LogoutButton.astro'
+
+const { user } = Astro.props
+---
+
+<section
+	class="mx-auto flex h-full w-full flex-col items-center justify-center rounded-lg p-6 lg:max-w-5xl"
+>
+	<div class="mb-4 flex w-full items-center justify-center">
+		<h1 class="text-2xl font-semibold text-gray-900">
+			Hola <b>{user.displayName}</b>
+		</h1>
+	</div>
+	<LogoutButton />
+
+	<!-- Pestañas para cambiar entre secciones -->
+	<div class="mb-8 mt-6 w-full">
+		<div class="flex border-b border-gray-200">
+			<button
+				id="upload-tab"
+				class="tab-button rounded-t-lg border-b-2 border-blue-600 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600"
+				onclick="switchTab('upload')"
+			>
+				📤 Subir Imágenes
+			</button>
+			<button
+				id="manage-tab"
+				class="tab-button ml-2 rounded-t-lg px-4 py-2 text-sm font-medium text-gray-500 hover:text-gray-700"
+				onclick="switchTab('manage')"
+			>
+				🗂️ Gestionar Imágenes
+			</button>
+		</div>
+	</div>
+
+	<!-- Sección de Subida de Imágenes -->
+	<div id="upload-section" class="w-full">
+		<p class="mb-6 w-full text-center text-gray-700">¡Vamos a subir algunas imágenes!</p>
+		<DropzoneUploader client:only="preact" />
+	</div>
+
+	<!-- Sección de Gestión de Imágenes -->
+	<div id="manage-section" class="hidden w-full">
+		<p class="mb-6 w-full text-center text-gray-700">
+			Gestiona y elimina las imágenes de tu galería
+		</p>
+		<ImageManager client:only="preact" />
+	</div>
+</section>
+
+<script>
+	function switchTab(tabName: string) {
+		// Ocultar todas las secciones
+		const uploadSection = document.getElementById('upload-section')
+		const manageSection = document.getElementById('manage-section')
+
+		if (uploadSection) uploadSection.classList.add('hidden')
+		if (manageSection) manageSection.classList.add('hidden')
+
+		// Remover estilos activos de todas las pestañas
+		document.querySelectorAll('.tab-button').forEach((tab) => {
+			tab.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600', 'bg-blue-50')
+			tab.classList.add('text-gray-500', 'hover:text-gray-700')
+		})
+
+		// Mostrar la sección seleccionada
+		const targetSection = document.getElementById(tabName + '-section')
+		if (targetSection) targetSection.classList.remove('hidden')
+
+		// Activar la pestaña correspondiente
+		const activeTab = document.getElementById(tabName + '-tab')
+		if (activeTab) {
+			activeTab.classList.remove('text-gray-500', 'hover:text-gray-700')
+			activeTab.classList.add('text-blue-600', 'border-b-2', 'border-blue-600', 'bg-blue-50')
+		}
+	}
+
+	// Hacer la función disponible globalmente
+	;(window as any).switchTab = switchTab
+</script>
+
+<style>
+	.tab-button {
+		transition: all 0.2s ease-in-out;
+	}
+</style>
