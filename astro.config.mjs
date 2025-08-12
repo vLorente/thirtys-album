@@ -8,6 +8,10 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
 	output: 'server',
 	integrations: [preact(), sitemap()],
+	server: {
+		host: process.env.NODE_ENV === 'development',
+		port: 4321,
+	},
 	vite: {
 		plugins: [
 			tailwindcss({

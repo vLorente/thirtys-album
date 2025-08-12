@@ -24,8 +24,13 @@ export function useFirebaseUpload() {
 				body: formData,
 			})
 
+			if (res.status === 413) {
+				setError('Una o más imágenes superan el límite de tamaño permitido (4MB).')
+				return null
+			}
+
 			if (!res.ok) {
-				throw new Error(`Error al subir las imágenes: ${res.statusText}`)
+				throw new Error(`Error al subir las imágenes`)
 			}
 
 			const data = ((await res.json()) as UploadResult) || null
