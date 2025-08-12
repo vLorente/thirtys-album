@@ -1,0 +1,52 @@
+{
+	"name": "Astro DevContainer",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "20",
+			"pnpmVersion": "latest"
+		},
+		"ghcr.io/devcontainers/features/git:1": {
+			"ppa": false,
+			"version": "latest"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"astro-build.astro-vscode",
+				"bradlc.vscode-tailwindcss",
+				"pranaygp.vscode-css-peek",
+				"github.vscode-github-actions",
+				"GitHub.vscode-pull-request-github",
+				"AykutSarac.jsoncrack-vscode",
+				"ms-vscode.live-server",
+				"esbenp.prettier-vscode",
+				"rvest.vs-code-prettier-eslint",
+				"yzhang.markdown-all-in-one",
+				"ms-vscode.vscode-typescript-next",
+				"ecmel.vscode-html-css",
+				"EditorConfig.EditorConfig"
+			]
+		}
+	},
+	"forwardPorts": [4321],
+	"portsAttributes": {
+		"4321": {
+			"label": "Astro Dev Server",
+			"onAutoForward": "notify",
+			"protocol": "http"
+		}
+	},
+	"postCreateCommand": "corepack enable && sudo chown -R node:node ${containerWorkspaceFolder} && pnpm install",
+	"postStartCommand": "git config --global core.autocrlf input",
+	"remoteUser": "node",
+	"containerEnv": {
+		"NODE_ENV": "development",
+		"ASTRO_HOST": "0.0.0.0",
+		"ASTRO_PORT": "4321"
+	},
+	"mounts": [
+		"source=thirtys-album-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+	]
+}
