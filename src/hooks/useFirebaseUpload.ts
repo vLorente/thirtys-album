@@ -30,7 +30,7 @@ export function useFirebaseUpload() {
 			}
 
 			if (!res.ok) {
-				throw new Error(`Error al subir las imágenes: ${res.statusText}`)
+				throw new Error(`Error al subir las imágenes`)
 			}
 
 			const data = ((await res.json()) as UploadResult) || null
