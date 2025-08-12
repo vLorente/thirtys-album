@@ -9,6 +9,9 @@ interface ImageEntry {
 	url: string
 }
 
+const MAX_IMAGE_SIZE_MB = 4
+const MAX_IMAGE_SIZE_BYTES = MAX_IMAGE_SIZE_MB * 1024 * 1024
+
 export default function DropzoneUploader() {
 	const [images, setImages] = useState<ImageEntry[]>([])
 	const [isDragging, setIsDragging] = useState(false)
@@ -61,6 +64,14 @@ export default function DropzoneUploader() {
 					images.map((i) => i.file),
 				),
 		)
+
+		const rejected = files.filter((file) => file.size > MAX_IMAGE_SIZE_BYTES)
+		if (rejected.length > 0) {
+			showToast({
+				message: `Algunas imágenes superan el límite de ${MAX_IMAGE_SIZE_MB}MB`,
+				status: 'error',
+			})
+		}
 
 		const newEntries = unique.map((file) => {
 			const url = URL.createObjectURL(file)
